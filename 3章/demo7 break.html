@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>break continue</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <!-- 3.2.5 break语句和continue -->
+    <script type="text/javascript">
+    	//break会中止现在的循环，continue只会中止本次循环，进入下次循环，
+    	// var huashi=new Array(212,"nimabi",43245);
+    	// var sheshi=new Array();
+    	// var bianhao;
+
+    	// for (bianhao=0; bianhao<=2; bianhao++) {
+    	// 	if (isNaN(huashi[bianhao])) {
+    	// 		alert("数组'huashi'里"+bianhao+"号元素"+huashi[bianhao]+"不是数字");
+    	// 		break;						//此处break只跳出if， 接下来还要执行sheshi[bianhao]这行代码
+    	// 	};
+    	// 	// break;							//如果这里加上break,不执行for循环，直接输出222.
+    	// 	sheshi[bianhao]=5/9*(huashi[bianhao]-32);
+    	// 	document.write(sheshi[bianhao]);
+    	// };
+    	// document.write("222")
+    	// document.write(sheshi[bianhao]+"<br/>");
+    </script>
+    <script type="text/javascript">
+	    var huashi=new Array(123,"dfdf",345);
+	    var sheshi=new Array();
+	    var bianhao;
+	    for (bianhao=0; bianhao <=2; bianhao++){
+	    	if (isNaN(huashi[bianhao])) {
+	    		alert("'huashi'数组里第"+bianhao+"号元素不是数字");
+	    		continue;
+	    	};
+	    	sheshi[bianhao]=5/9*(huashi[bianhao]-32);
+	    	document.write(sheshi[bianhao]+"<br/>");
+	    }
+    </script>
+</body>
+</html>

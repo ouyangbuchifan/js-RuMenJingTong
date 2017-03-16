@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>习题1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <!-- 编写一个JS程序，把摄氏温度转换为华氏温度。并将结果写在页面上。输出结果包含在一个具有描述性的语句中。转换公式：华氏＝9/5*摄氏+32 -->
+    <script type="text/javascript">
+    var sheshi,huashi;
+    sheshi=prompt("请输入一个摄氏温度，格式如下图",0);
+    huashi=9/5*sheshi+32;
+    document.write(sheshi+"度的华氏温度是"+huashi+"<br/>");
+    </script>
+
+    <!--有段代码中包涵的prompt函数有错误，改正后写出-->
+    <script type="text/javascript">
+    var firstN,secN,theTotal;				//定义三个变量；
+    firstN=prompt("请输入第一个整数","");		//输入第一个数字
+    secN=prompt("请输入第二个整数","");			//输入第二个数字
+    theTotal=parseFloat(firstN)+parseFloat(secN);		
+    //将两个数字转换为整型然后再输出；注意这里用浮点而不是整型。因为并不确定用户输入什么类型数字
+    document.write(firstN+"和"+secN+"的和是"+theTotal);
+    </script>
+</body>
+</html>

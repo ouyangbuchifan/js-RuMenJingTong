@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>只允许输入带两位小数的数字</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="http://amazeui.org/css/amaze.min.css">
+</head>
+<body>
+	<div class="am-g am-container">
+		<div class="col-sm-9 am-cf">
+			<form action="" class="am-form">
+				<div class="am-form-group">
+					<label class="col-sm-2 am-form-label">
+						密码：
+					</label>
+					<div class="col-sm-7">
+						<input type="text" id="demo">
+					</div>					
+				</div>
+				<div class="am-form-group am-center">
+					<input type="button" value="提交" class="am-btn am-btn-primary" onclick="test()">
+				</div>
+			</form>
+		</div>
+		
+	</div>
+    
+    
+    
+    <script type='text/javascript' src='http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2'></script>
+    <script type="text/javascript">
+    function demo (text) {
+    	var myRexExp=/^\d{2}.\d{2}$/;
+    	return (myRexExp.test(text));
+    }
+    function test(){
+    	if( demo(document.getElementById("demo").value)==true ){
+    		console.log('正确');
+    	}else{
+    		console.log('错误');
+    	}
+    }
+    </script>
+</body>
+</html>

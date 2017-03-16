@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>位置元字符－特殊元字符</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <div class="container">
+    	<h1>位置元字符</h1>
+    	<header class="header">
+    		<div class="row">
+    			<h3>将一句话的空格区分出来</h3>
+    			<p>
+    				Hello world!,let's look at boundaries said 007
+    			</p>
+    			<p>
+    				<script type="text/javascript">
+    				var myString="Hello world!,let's look at boundaries said 007";
+    				var myRegExp=/\b/g;
+    				myString=myString.replace(myRegExp,"|");	// 用replace() 方法将单词用|隔开
+    				document.write(myString);
+    				</script>
+    			</p>
+    			<hr>
+    			<h3>替换字符串中的指定单词。将字符串中的单词Paul替换为Ringo</h3>
+    			<p> <strong>myString="Paul,Paula,Pauline,paul,Paul";</strong> </p>
+    			<p class="lead">代码1. 虽然替换了Paul,但是作为非单词出现的Paul也被替换掉了</p>
+    			<p>
+    				<script type="text/javascript">
+    				myString="Paul,Paula,Pauline,paul,Paul";
+    				var myRegExp=/Paul/gi;
+    				myString=myString.replace(myRegExp,"Ringo");
+    				document.write(myString);
+    				</script>
+    			</p>
+    			<p class="lead">代码2. \W 匹配非单词字符达到一定效果，但第一个单词后的,被替换，最后一个Paul没有被替换</p>
+    			<p>
+    				<script type="text/javascript">
+    				myString="Paul,Paula,Pauline,paul,Paul";
+    				var myRegExp=/Paul\W/gi;
+    				myString=myString.replace(myRegExp,"Ringo");
+    				document.write(myString);
+    				</script>
+    			</p>
+    			<p class="lead">代码3. 解决上一个的问题</p>
+    			<p>
+    				<script type="text/javascript">
+    				myString="Paul,Paula,Pauline,paul,Paul";
+    				var myRegExp=/Paul\b/gi;
+    				myString=myString.replace(myRegExp,"Ringo");
+    				document.write(myString);
+    				</script>
+    			</p>
+    			<h4>终极版</h4>
+    			<p>正则最需要小心的就是正则要包含所有可能的情况。对于上面的例子，正则表示正常，但是对于下面代码，就会有错</p>
+    			<p><strong>myString="Paul, Paula, Pauline, paul, Paul, JeanPaul";</strong></p>
+    			<p>
+    				<script type="text/javascript">
+    				myString="Paul, Paula, Pauline, paul, Paul, JeanPaul";
+    				var myRegExp=/\bPaul\b/gi;
+    				myString=myString.replace(myRegExp,"Ringo");
+    				document.write(myString);
+    				</script>
+    			</p>
+    		</div>
+    	</header>
+    	<!-- end .header -->
+    	<hr>
+    	<article class="content">
+    		<div class="row">
+    			<div class="col-sm-4 col-md-4">
+    				^
+    			</div>
+    			<div class="col-sm-8 col-md-8">
+    				匹配字符串的开始位置，或者匹配多行字符串每一行的开始位置。使用时要在后面加上 /m 多行标记
+    			</div>
+    			
+    		</div>
+    		<div class="row">
+    			<div class="col-sm-4 col-md-4">
+    				$
+    			</div>
+    			<div class="col-sm-8 col-md-8">
+    				匹配字符串的结束位置，或者匹配多行字符串每一行的结束位置。使用时要在后面加上 /m 多行标记
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-sm4 col-md-4">
+    				\b
+    			</div>
+    			<div class="col-sm8 col-md-8">
+    				匹配单词的分界位置。本质上，单词的分界位置就是位于一个单词字符与一个非单词字符之间的位置
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-sm-4 col-md-4">
+    				\B
+    			</div>
+    			<div class="col-sm-8 col-md-8">
+    				匹配单词的非分界位置
+    			</div>
+    		</div>
+    	</article>
+    	<!-- end .content -->
+    </div>
+</body>
+</html>

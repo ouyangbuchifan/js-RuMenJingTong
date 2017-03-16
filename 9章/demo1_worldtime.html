@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>world time</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+	<script type="text/javascript">
+	var localTime=new Date();
+	</script>
+</head>
+<body>
+    <div class="container">
+    	<h1>使用Date对象的世界时方法</h1>
+		<h4>UTC time is
+			<script type="text/javascript">
+			document.write( localTime.toUTCString() );
+			</script>
+		</h4>
+		<hr>
+		<h4>
+			Local Time is
+			<script type="text/javascript">
+			document.write( localTime.toLocaleString() );
+			</script>
+		</h4>
+		<hr>
+		<h4>
+			Time Zone Offset is
+			<script type="text/javascript">
+			document.write( localTime.getTimezoneOffset() );
+			</script>
+		</h4>
+		<hr>
+		<h4>
+			Using toLocalTimeString() gives:
+			<script type="text/javascript">
+			if ( localTime.toLocaleTimeString ){				// 检测浏览器是否支持 toLocaleTimeString() 方法
+				document.write( localTime.toLocaleTimeString() )
+			}
+			</script>
+		</h4>
+		<hr>
+		<h4>
+			Using toTimeString() gives:
+			<script type="text/javascript">
+			if ( localTime.toTimeString ) {
+				document.write( localTime.toTimeString() );
+			};
+			</script>
+		</h4>
+		<hr>
+		<br>
+		<h2>以下两个方法用来显示用户计算机上的日期</h2>
+		<h4>
+			Using toLocaleDateString() gives:
+			<script type="text/javascript">
+			if ( localTime.toLocaleDateString ) {
+				document.write( localTime.toLocaleDateString() );		// 以用户计算机定义的格式来显示用户电脑日期
+			};
+			</script>
+		</h4>
+		<hr>
+		<h4>
+			Using toDateString() gives:
+			<script type="text/javascript">
+			if (localTime.toDateString) {
+				document.write(localTime.toDateString() );		// 以标准格式来显示用户电脑日期
+			};
+			</script>
+		</h4>
+		<hr>
+		<br>
+		<h4>设置UTC时间</h4>
+		<p class="lead">
+			<script type="text/javascript">
+			var myDate=new Date();
+			myDate.setUTCHours(12);		// 定义UTC小时
+			myDate.setUTCMinutes(0);	// 定义UTC分钟
+			myDate.setUTCSeconds(0);	// 定义UTC秒
+			document.write("<p>"+myDate.toUTCString()+"</p>");
+			document.write("<p>"+myDate.toLocaleString()+"</p>");
+
+			myDate.getUTCHours();	
+			myDate.getUTCFullYear();
+			myDate.getMilliseconds();
+			myDate.getUTCMinutes();
+			myDate.getUTCSeconds();
+			myDate.getUTCMonth();	
+			
+
+			// myDate.getUTCDate();	获取UTC时间的日期
+			// myDate.getUTCDay(); 获取UTC时间的周几，返回的是一个数字0表示周日
+			</script>
+		</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>文本，数字和标点符号元字符－特殊元字符</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="../css/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+		html,body{font-family: 微软雅黑;}
+		.wrap{padding: 0 15px;}
+		h1{text-align: center;}
+		.content{}
+		.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+		.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+		.content .row{margin-bottom: 15px;}
+		</style>
+		<script type="text/javascript">
+			function regExpIs_valid(text){
+				var myRegExp=/[^a-z\d ]/i;		// 定义一个正则，不是字母，不是数字，忽略大小写,忽略空格（注意中括号里有一个空格）。后面加了i,已经不区分大小写字母
+				// var myRegExp=/[^a-zA-Z\d _]/;	//同上一行意义是一样的。 加上对_的判断
+				return !( myRegExp.test(text) );	// RegExp对象的test()方法返回传入的参数字符串是否存在与RegExp对象中定义的正则相匹配的子串。有则方法返回true,无false
+
+			}
+			function btnCheckValid_onclick(){
+				if ( regExpIs_valid(document.form1.txtPhrase.value)==true ) {
+					alert("你输入的密码格式正确!");
+				}
+				else{
+					alert("！！你输入的密码格式错误");
+				}
+			}
+		</script>
+	</head>
+<body>
+<div class="container">
+	<h1>文本，数字和标点符号元字符</h1>
+	<h3>检查密码短语是否包含非字母和数字字符以及空格</h3>
+	<form action="javascript:" method="post" name="form1" role="form" class="wrap col-sm-12 col-md-12" autocomplete="on">
+		<label for="">请输入密码：</label>
+		<div class="form-group">
+			<input type="text" class="form-control" name="txtPhrase" placeholder="请输入密码" autocomplete="on">
+		</div>
+		<div class="form-group">
+			<input type="submit" value="提交" name="btnCheckValid" onclick="btnCheckValid_onclick()"  class="btn btn-primary">
+			<!-- 这里如果触发了函数，则表单的 autocomplete 属性不起作用 -->
+		</div>
+		
+	</form>
+	<!-- end form1 -->
+	<hr>
+	<div class="content">
+		<h2>文本，数字及标点元字符</h2>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				\d
+			</div>
+			<div class="col-sm-4 col-md-4">
+				0-9的任意数字
+			</div>
+			<div class="col-sm-4 col-md-4">
+				\d\d可以匹配72，但不匹配aa
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				\D
+			</div>
+			<div class="col-sm-4 col-md-4">
+				任意非数字字符
+			</div>
+			<div class="col-sm-4 col-md-4">
+				\D\D\D可以匹配abc,但不匹配123
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				\w
+			</div>
+			<div class="col-sm-4 col-md-4">
+				任意单词字符，即a~z,A~Z,0~9之间的字符，以及下划线_
+			</div>
+			<div class="col-sm-4 col-md-4">
+				\w\w\w\w可以匹配Ab_2,但不匹配!@#$%
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				\W
+			</div>
+			<div class="col-sm-4 col-md-4">
+				任意非单词字符
+			</div>
+			<div class="col-sm-4 col-md-4">
+				\W将匹配!@#$，但不匹配a
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				\s
+			</div>
+			<div class="col-sm-4 col-md-4">
+				任意空白字符，包含水平制表符，垂直制表符，空格，回车换行符，走纸符
+			</div>
+			<div class="col-sm-4 col-md-4">
+				\s 匹配tab
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				\S	
+			</div>
+			<div class="col-sm-4 col-md-4">
+				\S 将匹配任何非空白字符
+			</div>
+			<div class="col-sm-4 col-md-4">
+				\S 将匹配A，但不匹配tab
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				.
+			</div>
+			<div class="col-sm-4 col-md-4">
+				匹配除了换行符\n之外的任意字符
+			</div>
+			<div class="col-sm-4 col-md-4">
+				.匹配A,4,~
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				[...]
+			</div>
+			<div class="col-sm-4 col-md-4">
+				匹配方括号之内的任何一个字符
+			</div>
+			<div class="col-sm-4 col-md-4">
+				[abc]将匹配a,b,c但不匹配其他字符
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4">
+				[^...]
+			</div>
+			<div class="col-sm-4 col-md-4">
+				除了方括号之内字符之外的字符
+			</div>
+			<div class="col-sm-4 col-md-4">
+				[^a-z]将匹配除了a~z的字符
+			</div>
+		</div>
+	</div>
+	<!-- end .content -->
+
+
+
+</div>
+
+	
+</body>
+</html>

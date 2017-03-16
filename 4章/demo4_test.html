@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>4.2习题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+    function checkCharType(charToCheck){
+    	var returnValue="O";
+    	var charCode=charToCheck.charCodeAt(0);
+
+    	if (charCode>="A".charCodeAt(0) && charCode<="Z".charCodeAt(0)) {
+    		returnValue="U";
+    	}
+    	else if (charCode>="a".charCodeAt(0) && charCode<="z".charCodeAt(0)) {
+    		returnValue="L";
+    	}
+    	else if (charCode>="0".charCodeAt(0) && charCode<="9".charCodeAt(0)) {
+    		returnValue="N";
+    	}				
+
+		return returnValue;
+    }
+    </script>
+</head>
+<body>
+	<!-- 用charCodeAt()方法来检查指定的一个字符串的第一个字符，以确定是数字，大写字符，还是小写字符。 -->
+	<script type="text/javascript">
+	// var myString=prompt("输入一句话","Hello,world!");
+	// switch(checkCharType(myString)){
+	// 	case "U":
+	// 		document.write("第一个字符是大写字母");
+	// 		break;
+	// 	case "L":
+	// 		document.write("第一个字符是小写字母");
+	// 		break;
+	// 	case "N":
+	// 		document.write("第一个字符是数字");
+	// 		break;
+	// 	default:
+	// 		document.write("第一个字符不是数字也不是字母");
+	// }
+
+
+	var t1="dfdkjasdf";		
+	t2=t1.charCodeAt(2);			//charCodeAt() 返回该字符所对应的unicode编码数字
+	alert(t2);
+	</script>
+</body>
+</html>

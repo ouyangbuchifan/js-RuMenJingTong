@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+    ul,li,ol{list-style: none;}
+	div.demo{border-radius:50px;background: #eee;padding: 20px;}
+	.test7{*display:none;}
+    .nav{width: 100%;height: 30px;line-height: 30px;background: #ff0000;}
+    .nav ul{width: 1200px;height: 30px;line-height: 30px;background: #ff0000;margin: 0 auto;}
+    .nav ul li{float: left;width: 100px;}
+    .wrap{width: 1200px;margin: 0 auto;}
+    .wrap span{display: block;}
+</style>
+<script type="text/javascript">
+    function btn_sel(){
+        document.getElementById("txt_myname").select();
+        // document.myform.txt_myname.select();
+    }
+</script>
+</head>
+<body>
+    <form action="" name="myform">
+    <div class="demo">
+    	<input type="text" name="txt_myname" id="txt_myname" onblur="btn_sel()">       
+        <input type="button" onclick="btn_sel()" value="选定">
+    </div>
+    </form>
+
+    <div class="nav">
+        <ul>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+        </ul>
+    </div>
+    <div class="wrap">
+        <span style="width:100%;height:420px;background:url(http://www.ningpinhui.com/userfiles/adcontent/img/0/1397716113759.jpg) no-repeat center top;"></span>
+    </div>
+    
+</body>
+</html>

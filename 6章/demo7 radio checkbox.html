@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>单选按钮 复选框对象</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	/*body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+	table{border-collapse:collapse;border-spacing:0;}
+	address,caption,cite,code,dfn,em,th,var{font-weight:normal;font-style:normal;}
+	ol,ul{list-style:none;}
+	caption,th{text-align:left;}
+	h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
+	q:before,q:after{content:'';}
+	fieldset,img,abbr,acronym{border:0;}*/
+	/* 页面样式 */
+	.c:before,.c:after{content:"";display:table;}
+	.c:after{clear:both;}
+	.c{zoom:1;}
+	body{font:12px/1.5 tahoma,\5b8b\4f53,sans-serif;-webkit-text-size-adjust:none;text-align:justify;font:12px/1.5 'Microsoft YaHei',微软雅黑,'Microsoft JhengHei',华文细黑,STHeiti,MingLiu,Arial,simsun,宋体b8b\4f53;}
+	html{font-size: 62.5%;}
+	a{text-decoration:none;overflow:hidden;white-space: nowrap;}
+	a:hover{text-decoration:underline;}
+	.pr{position:relative;}
+	.pa{position:absolute;}
+	.hide{display:block;width:0;height:0;overflow:hidden;}
+	.db{display:block;text-indent:-999em;}
+	.fl{float:left;} .fr{float:right;}
+	.fw-b{font-weight:bold;}
+
+	form{line-height: 35px;padding: 20px;font-family: 宋体;}
+	form h3{font-size: 1.4rem;}
+	form p{font-size: 1.2rem;text-indent: 20px;}
+</style>
+<script type="text/javascript">
+	var radCpuSpeedIndex=0;
+	function radCPUSpeed_onclick(radIndex){
+		var returnValue=true;
+		if (radIndex==1) {
+			returnValue=false;
+			alert("很抱歉,你选择的CPU已经脱销");
+			document.form1.radCPUSpeed[radCpuSpeedIndex].checked=true;
+		}
+		else{
+			radCpuSpeedIndex=radIndex;
+		}
+		return returnValue;
+	}
+	function butCheck_onclick(){
+		var controlIndex=0;
+		var element;
+		var numberOfControls=document.form1.length;
+		var compSpec="你选择的CPU速度是";
+		compSpec=compSpec+document.form1.radCPUSpeed[radCpuSpeedIndex].value;
+		compSpec=compSpec+"\n 与下列附加组件\n";
+		for (controlIndex=0; controlIndex<numberOfControls;controlIndex++) {		//这个for循环遍历了表单中所有元素
+			element=document.form1[controlIndex];
+			if (element.type=="checkbox") {
+				if (element.checked==true) {
+					compSpec=compSpec+element.value+"\n";
+				}
+			}
+		}
+		// var radIndex;				// 也可以这样写，遍历数组，如果某个单选按钮被选中，
+		// for (radIndex=0; radIndex<form1.radCPUSpeed.length; radIndex++) {
+		// 	if (form1.radCPUSpeed[radIndex].checked==true) {
+		// 		radCpuSpeedIndex=radIndex;
+		// 	}
+		// }
+		alert(compSpec);
+	}
+</script>
+</head>
+<body>
+    <form action="###" name="form1">
+    	<h3>请选择你想在电脑里包含的组件</h3>
+		<p>
+			<span>DVD-ROM</span>
+			<span>
+				<input type="checkbox" name="chkDVD" id="chk-Dvd" value="DVD-ROM">
+			</span>
+		</p>
+		<p>
+			<span>CD-ROM</span>
+			<span>
+				<input type="checkbox" name="chkCD" id="chk-Cd" value="CD-ROM">
+			</span>
+		</p>
+		<p>
+			<span>Zip-Drive</span>
+			<span>
+				<input type="checkbox" name="chkZip" id="chk-Zip" value="Zip-Drive">
+			</span>8
+		</p>
+
+		<h3>选择你需要的处理器速度</h3>
+		<p>
+			<input type="radio" name="radCPUSpeed" id="rad-CPUSpeed1" checked="checked" onclick="return radCPUSpeed_onclick(0)" value="3.8GHZ"> 
+			<label for="rad-CPUSpeed1">3.8GHZ</label>
+		</p>
+		<p>
+			<input type="radio" name="radCPUSpeed" id="rad-CPUSpeed2" onclick="return radCPUSpeed_onclick(1)" value="4.8GHZ">
+			<label for="rad-CPUSpeed2">4.8GHZ</label>
+		</p> 
+		<p>
+			<input type="radio" name="radCPUSpeed" id="rad-CPUSpeed3" onclick="return radCPUSpeed_onclick(2)" value="6GHZ">
+			<label for="rad-CPUSpeed3">6GHZ</label>
+		</p>
+		<p><input type="button" name="btnSub" value="提交" onclick="return butCheck_onclick()"></p>
+    </form>
+</body>
+</html>

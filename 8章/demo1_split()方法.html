@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>字符串的新方法 split()方法</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+ <script type="text/javascript">
+ function splitAnReverseText(textAreaControl){
+ 	var textTosplit=textAreaControl.value;
+ 	var textArray=textTosplit.split('\n');	// split() 方法把字符串以\n 换行转为一个数组
+ 	var numberofParts=0;
+ 	numberofParts=textArray.length;
+ 	var reversedString="";
+ 	for (var indexCount = numberofParts-1; indexCount >= 0; indexCount--) {
+ 		reversedString+=textArray[indexCount];
+ 		if (indexCount>0) {
+ 			reversedString+="\n";
+ 		}
+ 	}
+ 	textAreaControl.value=reversedString;
+ }
+ </script>
+</head>
+<body>
+  	<script type="text/javascript">
+    // var test="abc";
+    // alert( String.toUpperCase(test) );
+    </script>
+    <h2>split()方法   分割字符串</h2>
+	    <script type="text/javascript">
+		    var myString="a,b,c";		
+		    var myNewString=myString.split(",");	
+		    //将字符串以,为单位分割开，成为一个数组，如果最后还有一个逗号，会把逗号后面的空字符也作为一个元素
+		    var ele;
+		    for(ele in myNewString){		// 用for in循环遍历数组，输出,fon in输出时ele为数组的元素序列。
+		    	document.write(myNewString[ele]+"\n");
+		    }
+	    </script>
+    <h3>翻转文本域内容</h3>
+		<form action="javascript:" name="form1">
+			<textarea name="textareal" id="txt-test" cols="50" rows="20" wrap="soft">我是
+五百年前
+大闹天宫的
+齐天大圣
+孙悟空
+			</textarea>
+			<input type="button" name="buttonSplit" onclick="splitAnReverseText(document.form1.textareal)" value="提交">
+		</form>
+</body>
+</html>

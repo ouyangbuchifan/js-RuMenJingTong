@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>第四章 练习题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<h3>第1题</h3>
+    <script type="text/javascript">
+    // 使用Date对象，计算从当前日期开始的12个月之后的日期，并输出
+
+   	var months=new Array("1","2","3","4","5","6","7","8","9","10","11","12");
+   	var dateNow=new Date();
+   	// var jo=prompt("请输入几个月之后的日期","0");
+   	// parseInt(jo);
+   	dateNow.setMonth(dateNow.getMonth()+12);
+   	// document.write(j+"个月之后是：");
+   	document.write(dateNow.getFullYear()+"年");
+   	document.write(months[dateNow.getMonth()]+"月");   	
+   	document.write(dateNow.getDate()+"日");
+   	
+
+    </script>
+    <h3>第二题</h3>
+    <script type="text/javascript">
+    //让用户输入一个名字的列表，并将名字保存在数组中。在程序中循环提示用户输入一个名字，直到输入为空。然后升序排列。输出。
+    // var names=new Array();
+    // var ele; var i=0;
+    // do{
+    // 	var inputj=prompt("请输入一个名字","");	  
+    // 	names[i]=inputj;
+    // 	i++;
+    // }
+    // while(inputj!="");  
+    // names.sort();
+    // for(ele in names){
+    // 	document.write(names[ele]+"<br/>");
+    // }    
+    </script>
+    <h3>第三题</h3>
+    <script type="text/javascript">
+    //自定义一个fix()函数，使可以精确到可选的小数位
+   		function fix(fixNumber,decimalPlaces){
+   			var div=Math.pow(10,decimalPlaces);
+   			fixNumber=new String(Math.round(div*fixNumber)/div);
+   			if (fixNumber.lastIndexOf(".")==-1) {
+   				fixNumber=fixNumber+".";
+   			}
+   			var zeroRequired=decimalPlaces-(fixNumber.length-fixNumber.lastIndexOf(".")-1);
+   			for (; zeroRequired > 0; zeroRequired--) {
+   				fixNumber=fixNumber+"0";
+   			}
+   			return fixNumber;
+   		}
+    </script>
+    <script type="text/javascript">
+    var number1=prompt("请输入一个你想精确的小数","");
+    var number2=prompt("你想精确到几位","");
+    document.write(number1+"精确到"+number2+"位小数之后是");
+    document.write(fix(number1,number2));
+    </script>
+</body>
+</html>

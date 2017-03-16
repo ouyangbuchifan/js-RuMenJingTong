@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>6.2.3 input</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function check(){
+		alert("文本框信息改变了");
+	}
+	function over(){
+		alert("按键松开了");
+	}
+</script>
+</head>
+<body>
+	<h3>value的</h3>
+    <input type="text" value="这里是默认值">
+    <h3>placeholder的</h3>
+    <form action="" name="myform">
+    <input type="text" name="txt_pwd" placeholder="这里是默认值" onchange="check()" />
+    <input type="text" onkeydown="over()">
+    </form>
+    <!-- 
+    			text事件
+    onchange 事件 文本框内容改变时触发
+    onselect 事件 选中文本框中内容时
+    onkeydown 事件 松开键盘按键之后
+    onkeypress 事件 点击了按键之后
+    onkeyup 事件 点击按键时 
+    -->
+    
+</body>
+</html>

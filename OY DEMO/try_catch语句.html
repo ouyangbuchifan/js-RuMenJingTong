@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+    function message(){
+    	try{
+    		aldf("这本身就是个错误，不能弹窗");        // 此处代码有误
+    	}	
+    	catch(err){            // 如果try里有误，执行catch语句内容
+    		txt="这个页面有个错误\n";
+    		txt+="点击OK继续观看此页面\n";
+    		txt+="或者点击返回去主页\n";
+    		if (!confirm(txt) ) {         // confirm方法 弹出一个确认框
+    			document.location.href="http://www.baidu.com";
+    		}
+
+    	}
+    }
+    </script>
+</head>
+<body>
+    <p>
+        利用try catch语句来练习。此页面有一个错误，如果出错，执行catch语句内容。  如果用户
+    </p>
+	<input type="button" value="提交" onclick="message()">
+
+    
+</body>
+</html>

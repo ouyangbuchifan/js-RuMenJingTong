@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>5.1 浏览器对象</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    // window 对象   代表浏览器窗体， 包含有alert()方法， prompt()方法
+    // document 对象	代表浏览器中的页面本身  包含bgColor属性，write()方法
+    // BOM  浏览器为JS所提供的对象的集合
+    // DOM  文档对象模型	
+
+    // 全局对象可以直接使用其属性和方法，例如window，不用写全局对象的对象名。alert() 就是 window.alert()
+    // 以下几个对象都是window对象的其中一个属性，但是它们同时又是一个对象
+
+    // history 对象 代表用户访问过的历史信息
+    // navigator 对象 包含浏览器自身相关信息
+    // screen 对象 包含计算机显示器显示能力的信息
+    // location 对象 浏览器所加载的当前页面的详细信息
+
+    // window对象  defaultStatus属性   修改浏览器状态栏
+    window.defaultStatus="Hello,world!";	//window可以省略，不过defaultStatus方法不常用，还是加上好，
+
+    // history对象
+    // 保存用户浏览过的页面信息，通常称为浏览器的历史栈
+
+    // back() 方法，变为访问后的最后一个页面
+    //history.back();			//先在浏览器输入一个地址，再运行这个页面；
+    // go() 方法 以当前页面为准，在历史中前进或者后退几个页面
+    history.go(1);		// 试吧
+
+    </script>
+</body>
+</html>

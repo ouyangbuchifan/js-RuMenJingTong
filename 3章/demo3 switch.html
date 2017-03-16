@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>switch语名</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    	var t1=parseInt(prompt("输入一个1到5的整数","") );
+    	// t1=parseInt(t1);
+    	switch(t1)
+    	{
+    		case 1:
+    			document.write("你输入的太小了！");
+    			break;
+			case 2:
+				document.write("你输入的太小了！");
+				break;
+			case 3:
+				document.write("你猜到了正确的数字");
+				break;
+			case 4:
+			case 5:
+				document.write("你输入的太大了！");
+				break;
+			default:
+				document.write("你没有输入一个1到5的数字");
+				break;
+    	}
+    	document.write("<br>继续执行！");
+    </script>
+</body>
+</html>

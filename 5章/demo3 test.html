@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <img src="" alt="psb" border="0" name="psb">
+    <script type="text/javascript">
+    //选择一张图片给img
+	var myImages=new Array("images/psb1.jpg","images/psb2.jpg","images/psb3.jpg","images/psb4.jpg"	);	
+    do {
+    	var t1=prompt("请输入一个图片的索引从0到3","");
+    	document.images["psb"].src=myImages[t1];
+    }
+    while(t1==""||t1>3)
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function tab (id,minid,topcont) {
+		for (var i = minid; i < minid+topcont; i++) {
+			if (id==i) {
+				document.getElementById("tab_menu_"+i).className="on";
+				document.getElementById("tab_cont_"+i).style.display="block";
+			}else{
+				document.getElementById("tab_menu_"+i).className="";
+				document.getElementById("tab_cont_"+i).style.display="none";
+			}
+		}
+	}
+</script>
+<style type="text/css">
+	ul,li{list-style: none;margin: 0;padding: 0;}
+	.tab a{color: #000;text-decoration: none;}
+	.tab>ul{margin: 0 0 0 20px;overflow: hidden;border-left: 1px solid #ccc;}
+	.tab>ul li{float: left;width: 100px;background: #fff;border: 1px solid #ccc;border-left: none;text-align: center;height: 35px;line-height: 35px;cursor: pointer;}
+	.tab>ul li.on{background: #eee;border-bottom: 1px solid #eee;}
+	.tab>.tab_cont{display: none;width: 403px;margin-left: 20px;border: 1px solid #ccc;border-top: none;min-height: 200px;}
+	.tab>div.on{display: block;}
+</style>
+</head>
+<body>
+    <div class="tab">
+    	<ul class="tab_menu">
+    		<li id="tab_menu_1" onmousemove="tab(1,1,4)" class="on">
+    			<a href="###">生活</a>	
+			</li>
+    		<li id="tab_menu_2" onmousemove="tab(2,1,4)">
+				<a href="###">科技</a>
+    		</li>
+    		<li id="tab_menu_3" onmousemove="tab(3,1,4)">
+				<a href="###">人文</a>
+    		</li>
+    		<li id="tab_menu_4" onmousemove="tab(4,1,4)">
+				<a href="###">房产</a>
+    		</li>
+    	</ul>
+    	<div id="tab_cont_1" class="tab_cont on">1</div>
+    	<div id="tab_cont_2" class="tab_cont">2</div>
+    	<div id="tab_cont_3" class="tab_cont">3</div>
+    	<div id="tab_cont_4" class="tab_cont">4</div>
+    </div>
+	<hr>
+	<p>点击触发</p>
+    <div class="tab">
+    	<ul class="tab_menu">
+    		<li id="tab_menu_5" onclick="tab(5,5,4)" class="on">生活</li>
+    		<li id="tab_menu_6" onclick="tab(6,5,4)">科技</li>
+    		<li id="tab_menu_7" onclick="tab(7,5,4)">人文</li>
+    		<li id="tab_menu_8" onclick="tab(8,5,4)">房产</li>
+    	</ul>
+    	<div id="tab_cont_5" class="tab_cont on">1</div>
+    	<div id="tab_cont_6" class="tab_cont">2</div>
+    	<div id="tab_cont_7" class="tab_cont">3</div>
+    	<div id="tab_cont_8" class="tab_cont">4</div>
+    </div>
+</body>
+</html>

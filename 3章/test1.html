@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>习题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 第3章习题 1 原题是一段初学者写的JS代码，现将正确代码写上-->
+    <script type="text/javascript">
+    	 // var userAge=prompt("请输入你的年龄","");
+    	 // if (userAge==0) {
+    	 // 	document.write("So you are a baby!");
+    	 // }
+    	 // else if (userAge<0 || userAge>200) {
+    	 // 	document.write("I think you may be lying about your age");
+    	 // }
+    	 // else{
+    	 // 	alert("That's a good age!");
+    	 // }
+    </script>
+
+    <!--习题2. 请用document.write()方法，输出12的乘法表。 -->
+    <script type="text/javascript">
+    	// function result(t1,t2){					//定义函数来求得三个数的积
+    	// 	var t1,t2;
+    	// 	document.write(t1+"*"+t2+"="+t1*t2+"<br/>");
+    	// }
+    	// var result;
+    	// for (i=1; i <= 12; i++) {
+    	// 	result(12,i);
+    	// }
+    </script>
+
+    <!--习题3 修改2中的代码，将函数改为三个参数，这个数为第1个参数，起始结束各1个参数。比如，从4开始到9结束，计算4的乘法表，就是从4*4开始到4*9 -->
+    <script type="text/javascript">
+    // function chengfa(t1,t2,t3){				//定义乘法函数，t1为乘法数，t2为开始数，t3为结束数。
+    // 	for ( ; t2 <=t3; t2++) {				//函数已经定义了t1,t2,t3刚开始不用写t1
+    // 		document.write(t1+"*"+t2+"="+t1*t2+"<br/>");
+    // 	};
+    // }
+    // chengfa(4,1,9);		//注意，第一个数为乘数，第二个数开始，第三个数结束
+    </script>
+
+    <p>习题4 修改3中的代码，要求用户输入一个数，计算这个数的乘法表，要求用户的输入和乘法表应该循环进行，直到用户输入－1.在代码中检查用户输入的是否是一个有效的值，如果用户输入无效，让他继续输入。</p>
+    <script type="text/javascript">
+    function chengfa(t1,t2,t3){
+    	for (; t2 <= t3; t2++) {
+    		document.write(t1+"*"+t2+"="+t1*t2+"<br/>");
+    	}
+    }
+    var t1;	
+    while( (t1=prompt("请输入一个数字！","")) !=-1){
+    	while(isNaN(t1)==true){
+    		t1=prompt(t1+"不是个数字，请继续输入","");  			
+    	}
+    	if (t1==-1) {
+    		break;
+    	}
+    	document.write("<br/>"+t1+"次表");
+    	chengfa(t1,3,4);
+    }									
+   
+    
+    </script>
+</body>
+</html>

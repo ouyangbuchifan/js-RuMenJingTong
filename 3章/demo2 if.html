@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>逻辑运算符</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 3.1.3  逻辑运算符 -->
+	<!-- 逻辑运算符左右两边均为布尔值 .注意，JS不做无用工作，如果逻辑与左侧为假，JS会直接判定为假而不去管右边，其余类似。-->
+	<!-- && 与     ||或     !非 -->
+    <script type="text/javascript">
+    	var t1=3;
+    	if (1<t1<4) 
+    		{
+    		document.write("这样是对的！~");
+    		};
+    	if (t1>1 && t1<4) 
+    		{
+    		document.write("这样也是对的！"+"<br/>");
+    		};
+
+    	//JS中，字母也可以做比较，大写在前，小写在后。越后的字母越大。
+    	var t1= "a"<"B";
+    	document.write(t1);	
+
+    	//JS中，用toUpperCase()来将字母转换为大写，用toLowerCase()将字母转换为小写。
+    	
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>重复字符－特珠元字符</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	</style>
+<script type="text/javascript" src="../js/respond.src.js"></script>
+</head>
+<body>
+    <div class="container">
+    	<h1>重复字符</h1>
+    	<div class="header">
+    		<h3>1-800-888-5474</h3>
+    		<p>这个用正则表示就是   /\d-\d{3}-\d{3}-\d{4}/ </p>
+    		<p> var myRegExp=/\d-\d{3}-\d{3}-\d{4}/ </p>
+    		<hr>
+    		<h3>Paul Paula Pauline</h3>
+    		<p>如果我们想匹配 Paul和Paula。 正则即  Paula?   a出现0次或者1次</p>
+    		<p> var myRegExp=/Paula?/ </p>
+    	</div>
+    	<hr>
+    	<!-- end .header -->
+    	<div class="content">
+    		<h2>重复字符</h2>
+	    	<div class="row">
+	    		<div class="col-sm-4 col-md-4">
+	    			{n}
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			前面的项重复n次
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			x{2}将与xx匹配
+	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-4 col-md-4">
+	    			{n,}
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			前面的项，重复n次，或者n次以上
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			x{2,}将与xx,xxx,xxxx等匹配
+	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-4 col-md-4">
+	    			{n,m}
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			前面的项最少出现n次，最多出现m次
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			x{2,4}将匹配xx,xxx和xxxx
+	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-4 col-md-4">
+	    			?
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			前面的项出现0次或1次
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			x?将匹配空串或者x
+	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-4 col-md-4">
+	    			+
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			前面的项出现1次或多次，但最少出现1次
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			x+将匹配x,xx,xxx,xxxx
+	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-4 col-md-4">
+	    			*
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			前面的项出现0次或多次
+	    		</div>
+	    		<div class="col-sm-4 col-md-4">
+	    			x*将匹配空串，或者x,xx,xxx,xxxx等
+	    		</div>
+	    	</div>
+    	</div>
+    	<!-- end .content -->
+    </div>
+    <!-- end .container -->
+</body>
+</html>

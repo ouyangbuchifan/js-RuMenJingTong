@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>9章 TEST</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <div class="container">
+    	<h1>9章 TEST</h1>
+    	<div class="row">
+    		<div class="col-ms-12 col-md-12">
+    			<p>找出你的生日是周几</p>
+    			<form action="javascript:" name="myform1">
+    				<input type="text" name="txtDate" size="2" maxlength="2" placeholder="日期">
+					<select name="selMonth" id="sel-month">
+						<option value="Jan" selected="selected">Jan</option>
+						<option value="Feb">Feb</option>
+						<option value="Mar">Mar</option>
+						<option value="Apr">Apr</option>
+						<option value="May">May</option>
+						<option value="Jun">Jun</option>
+						<option value="Jul">Jul</option>
+						<option value="Aug">Aug</option>
+						<option value="Sept">Sept</option>
+						<option value="Oct">Oct</option>
+						<option value="Nov">Nov</option>
+						<option value="Dec">Dec</option>
+					</select>
+					<input type="text" name="txtYear" size="4" maxlength="4" placeholder="年份">
+					<br>
+					<input type="button" value="Day of week" onclick="dayOfWeek()" name="button1" >
+    			</form>
+    		</div>
+    	</div>
+    </div>
+
+    <script type="text/javascript">
+    var days=new Array();
+    days[0]="Sunday";
+    days[1]="Monday";
+    days[2]="Tuesday";
+    days[3]="Wednesday";
+    days[4]="Thursday";
+    days[5]="Friday";
+    days[6]="Satuday";
+
+    function dayOfWeek(){
+    	var form=document.myform1;
+    	var date=parseInt(form.txtDate.value);
+    	var year=parseInt(form.txtYear.value);
+
+    	if ( isNaN(date)||isNaN(year) ) {
+    		alert("请输入一个整数"); 
+    	 }
+    	else{
+    		if (date<1 || date>31) {
+    			alert("日期必须在1和31之间");
+    		}
+    		else{
+    			var userDate=date+"";
+    			userDate=userDate+form.selMonth.options[form.selMonth.selectedIndex].value;
+    			userDate=userDate+""+year;
+    			var dateThen=new Date(userDate);
+    			document.write(days[dateThen.getDay()]);	
+    		}
+    	}
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>select</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+    	function test(){
+	    	var opcheck=myform.selList.options.selectedIndex;
+	    	alert(opcheck);
+    	}
+
+    	</script>
+</head>
+<body>
+    <form action="##3" name="myform">
+    	 <!-- size属性，表示用户可看到的内容多少。multiple 允许多选（ctrl） -->
+    	<select name="selList" id="sel-List" multiple="multiple">		
+    		<option value="1">1月</option>
+    		<option value="2">2月</option>
+    		<option value="3">3月</option>
+    		<option value="4">4月</option>
+    		<option value="5">5月</option>
+    		<option value="6">6月</option>
+    		<option value="7">7月</option>
+    		<option value="8">8月</option>
+    		<option value="9">9月</option>
+    		<option value="10">10月</option>
+    		<option value="11">11月</option>
+    		<option value="12">12月</option>
+    	</select>
+    	<p><input type="button" onclick="test()"></p>
+
+    	<!-- select对象的selectIndex属性 返回列表框中被选中的列表项在option[]数组中的索引。 -->
+    	<!-- Option对象 
+    	index 属性 返回当前Option对象在option[]数组中的索引
+    	text 属性 返回列表框中显示的文本标题
+    	value 属性 返回option的value值 -->
+    	<script type="text/javascript">
+    	var theDayElement=myform.selList;
+    	document.write("一共有"+theDayElement.length+"个元素在表单里");
+    	for (var optionCounter=1;optionCounter<theDayElement.length; optionCounter++) {
+    		document.write("<br/>"+"第"+optionCounter+"个元素的值是"+theDayElement.options[optionCounter].text);
+    		document.write("<br/>"+"第"+optionCounter+"个元素的value是"+theDayElement.options[optionCounter].value);
+    	}
+
+
+    	</script>
+    	<form action="##" name="myfrom2">
+    		<select name="selDay" id="sel-day">
+    			<option value="1">1</option>
+                <option value="1">1</option>
+                <option value="1">1</option>
+                <option value="1">1</option>
+    		</select>
+    	</form>
+    </form>
+</body>
+</html>

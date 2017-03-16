@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function getBrowserName(){
+		var lsBrowser=navigator.userAgent;
+		if (lsBrowser.indexOf("MSIE")>=0) {
+			lsBrowser="MSIE";
+		}
+		else if (lsBrowser.indexOf("Firefox")>=0) {
+			lsBrowser="Firefox";
+		}
+		else{
+			lsBrowser="Unknow";
+		}
+		return lsBrowser;
+	}
+
+	function checkBrowser(){
+		if (getBrowserName()=="MSIE") {
+			window.location.href="test2_IE.html";
+		}
+	}
+</script>
+</head>
+<body onload="checkBrowser()">
+	<!-- 第2题，创建两个页面，一个IE.HTML,一个FF.HTML。每个页面包含一个标题类似“这是火狐”，如果打开错的，跳转到正确的页面去。 -->
+    <h3>这是火狐浏览器</h3>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>使用计时器更新广告语</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+	<script type="text/javascript">
+	var imagesNum=3;		// 定义广告图片的总数		
+	var imagesstart=1;		// 定义广告图片开始的数目
+	function timeout(){
+		var timeout=setTimeout("test()",3000);		// 定义一个计时器,3秒后执行 test 函数
+	}
+	function test(){
+		imagesstart++;				// 让图片序号+1,因为默认显示的即是 1的图片
+		// document.ad.src="be"+imagesstart+".jpg";		// 修改图片名称
+		document.images[0].src="be"+imagesstart+".jpg";		// 用images对象来确定图片,效果与上一行一样
+		if (imagesstart<imagesNum) {
+			setTimeout("test()",3000);			// 如果图片序号比图片个数小,3秒执行一次
+		};
+	}
+	</script>
+</head>
+<body onload="timeout()">
+    <div class="container">
+    	<h1>使用计时器更新广告语</h1>
+    	<p class="lead">4.0版本以下的浏览器,可以这么写. 现在一般不用这么写,下一节的更简单.</p>
+    	<p class="lead">创建一个3秒就替换的广告</p>
+    	<div class="row">
+    		<div class="col-sm-4 col-md-4">
+    			<img src="be1.jpg" alt="" id="ad" name="ad">
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

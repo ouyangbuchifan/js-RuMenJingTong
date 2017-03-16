@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>基本数据类型与对象类型</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 4.1.4  -->
+    <script type="text/javascript">
+    //与字符串，数值，布尔类型对应的是 String对象，Number对象，Boolean对象。
+    var myString=new String("这是一个String对象");		//创建一个string对象
+    var length=myString.length;						//String对象的length属性，返回字符串中字符个数，字符串中，空格占用一个字符
+    document.write(length+"<br/>");			
+
+    var t1="dafasdf dfdf qweradsf";				
+    var length=t1.length;				//如果定义了一个字符串类型而去求它的长度，JS会临时把它转换为对象
+    document.write(length);	
+    </script>
+</body>
+</html>

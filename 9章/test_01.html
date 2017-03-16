@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>9章 TEST</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+	
+</head>
+<body onload="window_onload()">
+    <div class="container">
+    	<h1>9章 TEST</h1>
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<p class="lead">
+    				1.创建一个WEB页面,并在页面顶部放一个广告图片,页面加载时随机选一个图片.每过4S,图片换一张.但是换的新图片不允许出现过.所有图片都出现过以后,程序结束
+    			</p>
+    			<p>OY版</p>
+    			<p style="height:100px;">
+    				<img src="be1.jpg" alt="" name="adFrist" id="ad-first">
+    			</p>
+    		</div>
+    	</div>
+    	<hr>
+
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<p class="lead">
+    				BOOK版
+    			</p>
+    			<p style="height:100px;">
+    				<img src="be1.jpg" alt="" name="imgAdvert">
+    			</p>
+    		</div>
+    	</div>
+    </div>
+ 
+
+ <script type="text/javascript">
+		// OY版
+		// var t1,t2;
+	 //    function window_onload(){
+	 //    	window.setInterval("changeimg()",4000);
+	 //    }
+	 //    function changeimg(){
+	 //    	for(t1=0;t1<4;t1++){
+	 //    		t2=Math.floor( Math.random()*3+1 );		// 获得一个小于4的随机数
+	 //    		document.adFrist.src="be"+t2+".jpg";
+	 //    	}
+	 //    }
+
+
+
+	    // BOOK版
+	    var imgSelected=new Array(false,false,false);
+	    var noOfImages=3;
+	    var totalImagesSelected=0;
+
+	    function window_onload(){
+	    	setInterval("switchImage()",4000);
+	    }
+	    function switchImage(){
+	    	var imageIndex;
+	    	if (totalImagesSelected==noOfImages) {
+	    		for( imageIndex=0;imageIndex<noOfImages;imageIndex++ ){
+	    			imgSelected[imageIndex]=false;
+	    		}
+	    		totalImagesSelected=0;
+	    	}
+	    	var selectedImage=Math.floor( Math.random()*noOfImages )+1;
+	    	while( imgSelected[selectedImage-1]==true ){
+	    		selectedImage=Math.floor( Math.random()*noOfImages )+1;
+	    	}
+	    	totalImagesSelected++;
+	    	imgSelected[selectedImage-1]=true;
+	    	document.imgAdvert.src="be"+selectedImage+".jpg";
+	    }
+    </script>   
+</body>
+</html>

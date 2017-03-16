@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>第6章 习题 欧阳版</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+
+
+article h3{font-weight: bold;font-size: 16px;}
+#form2 p{text-indent: 2em;}
+#form2 h5{text-indent: 3em;}
+</style>
+<script type="text/javascript">
+function wendu(){
+	var huashi=document.form1.txtss.value;
+	sheshi=9/5*huashi+32;
+	alert(huashi+"转换为摄氏温度是"+sheshi+"度");
+}
+
+function computer(){
+	var price=0;
+	//CPU种类
+	for(var i=0;i<document.form2.radCpu.length;i++){
+		if (document.form2.radCpu[i].checked==true) {
+			price+=parseInt(document.form2.radCpu[i].value);
+			break;			
+		}		
+	}
+	//cpu速度
+	for (var i = 0; i <=form2.radSpeed.length; i++) {
+		if (document.form2.radSpeed[i].checked==true) {
+			price+=parseInt(document.form2.radSpeed[i].value);
+			break;
+		}
+	}
+	//内存大小
+	for (var i=0 ; i <form2.radMemory.length; i++) {
+		if (document.form2.radMemory[i].checked==true) {
+			price+=parseInt(document.form2.radMemory[i].value);
+			break;
+		}
+	}
+	//显存大小
+	for (var i = 0; i <document.form2.radGra.length; i++) {
+		if (document.form2.radGra[i].checked==true) {
+			price+=parseInt(document.form2.radGra[i].value);
+			break;
+		}
+	}
+	//硬盘容量
+	for (var i = 0; i <document.form2.radHard.length; i++) {
+		if (document.form2.radHard[i].checked==true) {
+			price+=parseInt(document.form2.radHard[i].value);
+			break;
+		}
+	}
+	//DVD-ROM
+	for (var i = 0; i <document.form2.radDvd.length; i++) {
+			price+=parseInt(document.form2.radDvd[i].value);
+			break;
+	}
+	//声卡
+	for (var i = 0; i < document.form2.radSound.length; i++) {
+		if (document.form2.radSound[i].checked==true) {
+			price+=parseInt(document.form2.radSound[i].value);
+		}	
+	}
+		
+	alert("总价："+price);
+	document.write(form2.test.text);
+	
+	
+}
+</script>
+</head>
+<body>
+<article>
+	<h3>1.根据2章温度转换例子，创建表单，将其连接到已有代码，使用户可以输入一个华氏温度，转换为摄氏温度</h3>
+	<p>
+	    <!--第2章题目 编写一个JS程序，把摄氏温度转换为华氏温度。并将结果写在页面上。输出结果包含在一个具有描述性的语句中。转换公式：华氏＝9/5*摄氏+32 -->
+	    <script type="text/javascript">
+	    // var sheshi,huashi;
+	    // sheshi=prompt("请输入一个摄氏温度，格式如下图",0);
+	    // huashi=9/5*sheshi+32;
+	    // document.write(sheshi+"度的华氏温度是"+huashi+"<br/>");
+	    </script> 
+	</p>
+	<form action="###" name="form1" >
+			<input type="text" name="txtss" id="txt-ss" placeholder="请输入一个摄氏温度">
+			<label for="txtss">请输入一个华氏温度</label>		
+			<input type="submit" onclick="wendu()" value="转换">
+	</form>
+</article>
+<article>
+	<h3>2. 创建一个表单，模拟用户在网上买电脑配件，包括：CPU，处理速度，内存大小，硬盘容量，DVD-ROM,声卡，显卡类型。</h3>
+	<div>
+	<form action="javascript:" name="form2" id="form2" method="post">
+		<h5>1.请选择CPU种类：</h5>
+		<p>
+			<input type="radio" name="radCpu" id="rad-cpuamd" value="1000" >
+			<label for="rad-cpuamd"> A. AMD (&yen 1000)</label>		
+		</p>
+		<p>
+			<input type="radio" name="radCpu" id="rad-cpuintel" value="800" >
+			<label for="rad-cpuintel"> B. INTEL (&yen 800)</label>
+		</p>		
+		
+		<h5>2.请选择CPU速度： </h5>
+		<p>
+			<input type="radio" name="radSpeed" id="rad-cpuspeed" value="300">
+			<label for="rad-cpuspeed"> A. 1.5GHZ (&yen300)</label>
+		</p>
+		<p>
+			<input type="radio" name="radSpeed" id="rad-cpuspeed1" value="400">
+			<label for="rad-cpuspeed1"> B. 2.0GHZ (&yen400)</label>
+		</p>
+		<p>
+			<input type="radio" name="radSpeed" id="rad-cpuspeed2" value="500">
+			<label for="rad-cpuspeed2"> C. 2.5GHZ (&yen500)</label>
+		</p>
+
+		<h5>3.请选择内存大小：</h5>
+		<p>
+			<input type="radio" name="radMemory" id="rad-memory" value="100">
+			<label for="rad-memory"> A. 1G (&yen100)</label>
+		</p>
+		<p>
+			<input type="radio" name="radMemory" id="rad-memory2" value="200">
+			<label for="rad-memory2"> B. 2G (&yen200)</label>
+		</p>
+
+		<h5>4.请选择显存大小</h5>
+		<p>
+			<input type="radio" name="radGra" id="rad-gra" value="400">
+			<label for="rad-gra"> A. GT400 (&yen400)</label>
+		</p>
+		<p>
+			<input type="radio" name="radGra" id="rad-gra2" value="500">
+			<label for="rad-gra2"> B. GT500 (&yen500)</label>
+		</p>
+
+		<h5>5.硬盘容量</h5>
+		<p>
+			<input type="radio" name="radHard" id="rad-hard1" value="750">
+			<label for="rad-hard1"> A. 750G (&yen750)</label>
+		</p>
+		<p>
+			<input type="radio" name="radHard" id="rad-hard2" value="1000">
+			<label for="rad-hard2"> B. 1000G (&yen1000)</label>
+		</p>
+
+		<h5>6.DVD-ROM</h5>
+		<p>
+			<input type="radio" name="radDvd" id="rad-dvd1" value="100">
+			<label for="rad-dvd1"> A. 有(&yen100)</label>
+		</p>
+		<p>
+			<input type="radio" name="radDvd" id="rad-dvd2" value="0">
+			<label for="rad-dvd2"> B. 没有(&yen0)</label>
+		</p>
+
+		<h5>7.声卡</h5>
+		<p>
+			<input type="radio" name="radSound" id="rad-sound1" value="100">
+			<label for="rad-sound1"> A. 有(&yen100)</label>
+		</p>
+		<p>
+			<input type="radio" name="radSound" id="rad-sound2" value="0">
+			<label for="rad-sound2"> B. 没有（&yen0）</label>
+		</p>
+
+
+
+		<footer>
+			<input type="submit" value="提交" onclick="computer()" id="btn-sub">
+		</footer>		
+	</form>	
+
+	</div>
+</article>
+</body>
+</html>

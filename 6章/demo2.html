@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>6.2.2 button表单元素</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	var numberOfClicks=0;
+	function test(){
+		numberOfClicks++;
+		document.myName.myButton.value="Button clicked"+numberOfClicks+"times";
+	}
+
+	function mysubmit_onmouseup(){
+		document.myform2.mysubmit.value="mouse goes up";
+	}
+	function mysubmit_onmousedown(){
+		document.myform2.mysubmit.value="mouse goes down";
+	}
+</script>
+</head>
+<body>
+	<!-- focus() 方法 获得输入焦点	blur() 方法  失去输入焦点 
+		当表单元素获得输入焦点的时候，会触发onfocus事件处理程序
+		当表单元素失去输入焦点的时候，会触发onblur事件处理程序
+	-->
+    <form action="" name="myName">
+    	<input type="button" value="ClickMe" name="myButton" onclick="test()">
+    	<input type="text" placeholder="这里是默认值">
+    </form>
+	
+	<form action="" name="myform2">
+		<input type="submit" value="mouse goes up" name="mysubmit" onmouseup="mysubmit_onmouseup()" onmousedown="mysubmit_onmousedown()">
+	</form>
+   
+</body>
+</html>

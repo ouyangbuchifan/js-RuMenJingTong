@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+	table{border-collapse:collapse;border-spacing:0;}
+	address,caption,cite,code,dfn,em,th,var{font-weight:normal;font-style:normal;}
+	ol,ul{list-style:none;}
+	caption,th{text-align:left;}
+	h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
+	q:before,q:after{content:'';}
+	fieldset,img,abbr,acronym{border:0;}
+	/* 页面样式 */
+	.c:before,.c:after{content:"";display:table;}
+	.c:after{clear:both;}
+	.c{zoom:1;}
+	body{font:12px/1.5 tahoma,\5b8b\4f53,sans-serif;-webkit-text-size-adjust:none;text-align:justify;font:12px/1.5 'Microsoft YaHei',微软雅黑,'Microsoft JhengHei',华文细黑,STHeiti,MingLiu,Arial,simsun,宋体b8b\4f53;}
+	a{text-decoration:none;overflow:hidden;}
+	a:hover{text-decoration:underline;}
+	.pr{position:relative;}
+	.pa{position:absolute;}
+	.hide{display:block;width:0;height:0;overflow:hidden;}
+	.db{display:block;text-indent:-999em;}
+	.fl{float:left;} .fr{float:right;}
+	.fw-b{font-weight:bold;}
+
+	.w-60{width: 60px;} .w-120{width: 120px;}
+	.nop{height: 35px;line-height: 35px;}
+	.myform .w-60{text-align: left;}
+	.myform .fl{display: block;}
+</style>
+<script type="text/javascript">
+	function myname_onblur(){
+		if (myform.txt_MyName.value!="") {
+			// window.status=document.myform.txt_MyName.value;
+			alert("你好"+myform.txt_MyName.value);
+		}
+	}
+	function age_onblur(){
+		if (myform.txt_Age.value!="") {
+			if (isNaN(myform.txt_Age.value)==true) {
+				alert("请输入你的真实年龄，为数字");
+			}
+		}
+	}
+	function btn_check(){
+		var form1=document.myform;		// 这样可以简写 document.myform
+		if ( (form1.txt_MyName.value=="")||(form1.txt_Age.value=="") ) {
+			alert("不允许为空");
+			if (form1.txt_MyName.value=="") {
+				form1.txt_MyName.focus();
+				form1.txt_MyName.style.border="1px solid #f00";
+				form1.txt_MyName.select();				
+			}
+			else{
+				form1.txt_Age.focus();
+				form1.txt_Age.style.border="1px solid #f00";
+				form1.txt_Age.select();			//select() 方法 选中文本框中的内容。其实在这里没有意义，为空
+			}
+		}
+		else{
+			alert("你好"+form1.txt_MyName.value+"你现在"+myform.txt_Age.value+"岁");
+		}
+	}
+	function myname_change(){
+		window.status=myform.txt_MyName.value+"你好";
+	}
+</script>
+</head>
+<body>
+	<!-- 创建一个简单表单。两个文本框一个提交。第一个文本框用户姓名，第二个年龄。当输入年龄文本框失去焦点时，检查年龄是否有效。提交时，检查两个文本框是否为空。 -->
+	<form action="" method="post" name="myform" class="myform">
+	    <div class="nop">
+	    	<span class="w-60 fl">姓名</span>
+	    	<span class="fl">
+	    		<input type="text" name="txt_MyName" onblur="myname_onblur()" onchange="myname_change()" placeholder="请输入你的姓名">		
+	    	</span>
+	    </div>
+	    <div class="nop">
+	    	<span class="w-60 fl">年龄</span>
+	    	<span class="fl">
+	    		<input type="text" name="txt_Age" onblur="age_onblur()" placeholder="请输入你的真实年龄" maxlength="2">
+	    	</span>
+	    </div>
+	    <div class="nop">
+	    	<input type="button" value="提交" onclick="btn_check()">
+	    </div>
+    </form>
+    <!-- 注：onblur() 事件在火狐下不能触发 select方法 -->
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>demo6</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	var newWindow;
+	// 打开新窗口
+	function btnOpenWin_onclick(){
+		var winTop=(screen.height/2)-125;		// screen.height 获取当前分辨率高， 这样winTop可以让窗口垂直居中
+		var winLeft=(screen.width/2)-125;		// screen.width 获取当前分辨率宽， 这样winLeft可以让窗口水平居中
+		var windowFeatures="width=250,height=250";	// 定义新窗口宽高
+		windowFeatures+="left="+winLeft+",";	// 将left添加
+		windowFeatures+="top="+winTop;		// 添加top
+		newWindow=window.open("newWindow.html","mywindow",windowFeatures);
+	}
+	// 获取新窗口表单里的文本
+	function btnGetText_onclick(){
+		if ( typeof(newWindow)=="undefined"||newWindow.closed==true ) {
+			alert("窗口没有打开");
+		}
+		else{
+			document.form1.text1.value=newWindow.document.form1.text1.value;
+		}
+	}
+	function window_onunload(){
+		if ( typeof(newWindow)!="undefined" && newWindow.closed==false  ) {
+			newWindow.close();
+		}
+	}
+</script>
+</head>
+<body onload="window_onunload()">
+    <form action="javascript:" name="form1" method="post">
+    	<p>
+    		<input type="button" value="打开新窗口" name="btnOpenWin" onclick="btnOpenWin_onclick()">
+    	</p>
+    	<p>
+    		<input type="text" name="text1">
+    	</p>
+    	<p>
+    		<input type="button" value="获取文本" name="btnGetText" onclick="return btnGetText_onclick()">
+    	</p>
+    </form>
+</body>
+</html>

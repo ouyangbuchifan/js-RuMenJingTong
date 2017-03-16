@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>cookie的path,domain,Secure</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<h2>
+    				path 目录
+    			</h2>		
+    			<p>
+    				<script type="text/javascript">
+					    document.cookie="UserName=Paul;expires=Tue, 28 Dec 2020 00:00:00"+";path=/mystore;";		
+					    // 这样可以让/mystore 目录下所有的子目录可以用上cookie
+					    document.cookie="UserName=Paul;expires=Tue, 28 Dec 2020 00:00:00"+";path=/;";
+					    // 这样网站根目录下所有的目录都可以公用cookie。   如果一个域名下有多个网站，最好不要这么做。否则其他网站也可以访问这个cookie
+				    </script>
+    			</p>
+    		</div>
+    	</div>
+    	<hr>
+    	<div class="row">
+    		<h2>
+    			domain 域 (不常使用)
+    		</h2>
+    		<div class="col-sm-12 col-md-12">
+    			<p>
+    				<script type="text/javascript">
+    				document.cookie="UserName=Paul;expires=Tue, 0 Dec 2020 00:00:00;path=/"+";domain=MyDomain.com";
+    				// 只有 MyDomain.com及其及域名内容才能访问cookie
+    				</script>
+    			</p>
+    		</div>
+    	</div>
+    	<hr>
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<h2>
+    				Secure (安全性)
+    			</h2>
+    			<p>
+    				Secure设置为true时，仅在浏览器和服务器通过SSL安全协议连接才传输
+    			</p>
+    		</div>
+    	</div>
+    </div>
+
+
+</body>
+</html>

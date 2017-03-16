@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>try catch</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	.bs-example-bg-classes p{padding: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<script type="text/javascript">
+    			try{
+    				alert("这是try子句中的一段代码");
+    				alerst("没有错误，所以catch子句不会被执行");		// 故意将代码写错，这样本句将不执行，执行catch中的语句
+    			}
+    			catch(exception){			// exception 表示一个变量名，保存在执行try子句时由于异常而抛出的一个Exception对象，它保存了异常的相关信息
+    				if (exception.description==null) {		// 火狐不支持description属性，所以用它来判断，它支持message属性
+    					alert("火狐里错误是"+exception.message);
+    				}
+    				else{
+    					alert("IE里错误是"+exception.description);
+    				}
+    			}
+    			</script>
+    			<div class="bs-example bs-example-bg-classes">
+    				<p class="bg-primary">
+    				try-catch语句并不支持检查JS中的语法错误
+    			</p>
+    			</div>
+    			
+    		</div>
+    	</div>
+    	
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 3.1.1 比较运算符 -->
+    <script type="text/javascript">
+    	// var age=prompt("输入年龄","");
+    	// var isOverSixty=parseInt(age)>60;		//JS里会自动判断表达式的类型，输出即为布尔类型。
+    	// document.write("比60岁大"+isOverSixty);
+
+   		// var wendu=100;
+    	// if (wendu>80) {
+    	// 	wendu=wendu-10;
+    	// 	alert("这里变的有点热了！");
+    	// 	alert("即将开空调！");
+    	// };
+
+    	var huashi=Number(prompt("请输入一个华氏温度",""));			//Number函数用于显式地将输入内容变为数字
+    	var sheshi;
+    	sheshi=9/5*huashi+32;
+    	if (sheshi<0) {
+    		document.write("水要冻成冰了,"+"<br/>");
+    	}
+    	else if (0<sheshi<100) {
+    		document.write("接着烧");
+    	}
+    	if (sheshi==100) {
+    		document.write("水已经开了");
+    	}
+
+    	
+    	
+    </script>
+</body>
+</html>

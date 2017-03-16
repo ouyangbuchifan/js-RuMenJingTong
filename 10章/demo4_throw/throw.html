@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>创建一个阶乘函数来验证try catch throw的应用</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	/*body{background: #000;}*/
+</style>
+</head>
+<body>
+    <form name="form1" action="javascript:">
+    	<input type="text" name="txtNum1" size="3">阶乘是：
+		<input type="text" name="txtResult" size="25">
+		<input type="button" value="计算阶乘" name="butCalculate" onclick="butCalculate_onclick()">
+    </form>
+
+    <script type="text/javascript">
+    function butCalculate_onclick(){
+    	try{
+    		if (window.top.calcFactorial==null) {
+    			throw "这个父框架没有子框架" ;
+    		}
+    		if (document.form1.txtNum1.value=="") {
+    			throw "计算阶乘前请输入一个数字"; 
+    		}
+    		if (isNaN(document.form1.txtNum1.value)) {
+    			throw "请输入一个数字";
+    		}
+    		if (document.form1.txtNum1.value<0) {
+    			throw "请输入一个大于0的数字";
+    		}
+    		document.form1.txtResult.value=window.parent.calcFactorial(document.form1.txtNum1.value);     // parent属性表示浏览器中打开的窗口
+    	}
+    	catch(exception){
+    		if ( typeof(exception)=="string" ) {
+    			if (exception.charAt(0)=="!") {
+    				alert( exception.substr(1) );
+    				document.form1.txtNum1.focus();
+    				document.form1.txtNum1.select();
+    			}
+                else{
+                    alert(exception);
+                }
+    		}
+    		else{
+                if (exception.description==null) {
+                    alert("接下来的错误将发生"+exception.message);
+                }
+                else{
+                    alert("接下来的错误将发生"+exception.description);
+                }
+            }
+    	}  
+
+    	
+    }
+    </script>
+</body>
+</html>

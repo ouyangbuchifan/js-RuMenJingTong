@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>4.2.2 Math对象练习题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	table{border-collapse: collapse;width: 200px}
+	table tr td{border: 1px solid #ccc;padding: 5px 10px;}
+	table tr:nth-child(odd){background: #eee;}
+	table tr:nth-child(even){background: #fff;}
+</style>
+</head>
+<body>
+    <script type="text/javascript">
+    // 用户输入一个数据，分别输出这个数字的 ceil()，floor(),round(),abs()方法之后的值。
+    var Number=prompt("请输入你的数字","");
+    document.write("<table border=\"1\" >");
+    document.write("<caption>你输入的数字是"+Number+"</caption>");
+    document.write("<tr><td>abs()</td>");
+    document.write("<td>"+Math.abs(Number)+"</td></tr>");
+    document.write("<tr><td>ceil()</td>");
+    document.write("<td>"+Math.ceil(Number)+"</td></tr>");
+    document.write("<tr><td>floor()");
+    document.write("<td>"+Math.floor(Number)+"</td></tr>");
+    document.write("<tr><td>round()");
+    document.write("<td>"+Math.round(Number)+"</td></tr>");
+    document.write("</table>");
+    </script>
+</body>
+</html>

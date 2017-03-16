@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ask questions</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	var globalFunctions;
+	globalFunctions=window.top.fraTopFrame.fraGlobalFunctions;
+
+	function getAnswer(){
+		var answer=0;
+		while( document.QuestionForm.radQuestionChoice[answer].checked!=true){
+			answer++;
+		}
+		return String.fromCharCode(65+answer);
+	}
+
+	function buttonCheckQ_onclick(){
+		var questionNumber=globalFunctions.currentQNumber;
+		if ( globalFunctions.answerCorrect(questionsNumber,getAnswer()) ==true ) {
+			alert("正确！");
+		}
+		else{
+			alert("错误！");
+		}
+		window.location.reload();
+	}
+
+</script>
+</head>
+<body style="background:#000033;">
+    <table>
+    	<tr>
+    		<td bgcolor="RoyalBlue">
+    			<form action="javascript:" name="QuestionForm">
+    				<script type="text/javascript">
+    				document.write(globalFunctions.getQuestion() );
+    				</script>
+    			</form>
+    		</td>
+    	</tr>
+    </table>
+</body>
+</html>

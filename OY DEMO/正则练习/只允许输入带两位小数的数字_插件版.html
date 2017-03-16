@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="assets/css/amui.all.css" rel="stylesheet">
+<style type="text/css">
+	.Validform_checktip{
+		margin-left:8px;
+		line-height:20px;
+		height:20px;
+		overflow:hidden;
+		color:#999;
+		font-size:12px;
+	}
+	.Validform_right{
+		color:#71b83d;
+		padding-left:20px;
+		
+	}
+	.Validform_wrong{
+		color:red;
+		padding-left:20px;
+		white-space:nowrap;
+
+	}
+	.Validform_loading{
+		padding-left:20px;
+
+	}
+	.Validform_error{
+		background-color:#ffe7e7;
+	}
+	#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999'); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);}
+	#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+	#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#999;
+	background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-gradient(linear, 0 0, 0 100%, from(#999), to(#666)); filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#666666');}
+	#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+	#Validform_msg a.Validform_close:hover{color:#ccc;}
+	#Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
+</style>
+</head>
+<body>
+	<div class="am-g am-container">
+		<div class="col-sm-12 am-cf">
+			<form action="" class="am-form am-form-horizontal">
+				<div class="am-form-group">
+					<label class="col-sm-2 am-form-label">
+						密码：
+					</label>
+					<div class="col-sm-7">
+						<input type="text" id="demo" datatype="nx2-2" nullmsg="请输入你的密码" sucmsg="验证成功" errormsg="请输入一个小数点后面两位的小数" >
+					</div>	
+					<div class="col-sm-3">
+						<div class="Validform_checktip"></div>
+					</div>				
+				</div>
+				<div class="am-form-group">
+					<input type="submit" value="提交" class="am-btn am-btn-primary">
+				</div>
+			</form>
+		</div>
+		
+	</div>
+    
+    
+    
+
+<script type="text/javascript" src="http://validform.rjboy.cn/wp-content/themes/validform/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="http://validform.rjboy.cn/Validform/v5.1/Validform_v5.1_min.js"></script>
+    <script type="text/javascript">
+   		$(function(){
+   			var demo=$('.am-form').Validform({
+   				tiptype:2,
+   				datatype:{
+   					"nx2-2":/^\d{2}.\d{2}$/
+   				},
+   			});
+
+   		})
+    </script>
+</body>
+</html>

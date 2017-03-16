@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function test(){
+		var newWindow=window.open("","myNewWindow","width=300,height=300");
+		newWindow.document.open();
+		newWindow.document.write("<h1>这是一个标题</h1>");
+		newWindow.document.write("<p>这个页面在物理上是不存在的。</p>");
+		newWindow.document.close();	// close()仅关闭了文档，没有关闭窗口。
+		//newWindow.document.write("<h2>这个是第二个标题，前面有一些内容，不过被close()关闭掉了</h2>");
+	}
+</script>
+</head>
+<body>
+	可以创建一个空的页面，然后在这个空页面中添加内容（页面在物理上不存在）。
+    <img src="images/beg_dreamweaver.jpg" alt="" border="0" onclick="return test()">
+</body>
+</html>

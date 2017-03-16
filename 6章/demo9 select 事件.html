@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>select 的事件</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function onload_text(){
+		
+	}
+	function writeOptions(firstnumber,secondnumber){
+		for (i=firstnumber; i<=secondnumber; i++) {
+			document.write("<option value="+i+">"+i+"</option>");
+		}
+	}
+    function writeMonthOptions(){
+        var theMonth;
+        var monthCounter;
+        var theDate=new Date(1);
+        for (monthCounter=0;monthCounter<12;monthCounter++) {
+            theDate.setMonth(monthCounter);
+            theMonth=theDate.toString();
+            theMonth=theMonth.substr(4,3);
+            document.write("<option value="+theMonth+">"+theMonth+"</option>");
+        }
+
+    }
+	function recalcDateDiff(){
+		var myform=document.myform;
+		var firstday=myform.seldate.options[myform.seldate.selectedIndex].value;
+        var secondday=myform.seldate2.options[myform.seldate2.selectedIndex].value;
+		var firstmonth=myform.selmonth.options[myform.selmonth.selectedIndex].value;
+        var secondmonth=myform.selmonth2.options[myform.selmonth2.selectedIndex].value;
+		var firstyear=myform.selyear.options[myform.selyear.selectedIndex].value;
+        var secondyear=myform.selyear2.options[myform.selyear2.selectedIndex].value;
+        var firstDate=new Date(firstday+""+firstmonth+""+firstyear);
+        var secondDate=new Date(secondday+""+secondmonth+""+secondyear);
+        var daysDiff=secondDate.valueOf()-firstDate.valueOf();
+        daysDiff=Math.floor( Math.abs( (((  daysDiff  /1000)/60)/60)/24  ) );
+        myform.txtdays.value=daysDiff;
+        return true;
+	}
+    function window_onload(){
+        var theForm=document.myform;
+        var nowDate=new Date();
+        theForm.seldate.options[nowDate.getDate()-1].selected=true;
+        theForm.seldate2.options[nowDate.getDate()-1].selected=true;
+        theForm.selmonth.options[nowDate.getMonth()].selected=true;
+        theForm.selmonth2.options[nowDate.getMonth()].selected=true;
+        theForm.selyear.options[nowDate.getFullYear()-1970].selected=true;
+        theForm.selyear2.options[nowDate.getFullYear()-1970].selected=true;
+    }
+</script>
+</head>
+<body onload="return window_onload()">
+    <!-- 这个例子用来计算两个时间之间的天数，不过在ff浏览器中不兼容 -->
+    <form action="###" name="myform" >
+    <div>
+		<p>第一个时间</p>
+    	<select name="seldate" id="sel-date" size="1" onchange="return recalcDateDiff()">
+    		<script type="text/javascript">
+	    		writeOptions(1,31);
+	    	</script>
+    	</select>
+    	<label for="seldate">日</label>
+    	<select name="selmonth" id="sel-month" size="1" onchange="return recalcDateDiff()">
+    		<script type="text/javascript">
+    			writeMonthOptions()
+    		</script>
+    	</select>
+    	<label for="selmonth">月</label>
+    	<select name="selyear" id="sel-year" onchange="return recalcDateDiff()">
+    		<script type="text/javascript">
+    			writeOptions(1970,2020)
+    		</script>
+    	</select>
+    	<label for="selyear">年</label>
+    </div>	
+    <div>
+    	<p>第二个时间</p>
+    	<select name="seldate2" id="sel-date2" onchange="return recalcDateDiff()">
+    		<script type="text/javascript">
+    		writeOptions(1,31)
+    		</script>
+    	</select>
+    	<label for="seldate2">日</label>
+    	<select name="selmonth2" id="sel-month2" onchange="return recalcDateDiff()">
+    		<script type="text/javascript">
+    		writeMonthOptions()
+    		</script>
+    	</select>
+    	<label for="selmonth2">月</label>
+    	<select name="selyear2" id="selyear2" onchange="return recalcDateDiff()">
+    		<script type="text/javascript">
+    		writeOptions(1970,2020)
+    		</script>
+    	</select>
+    	<label for="selyear2">年</label>
+    </div>
+    <p>
+    	<label for="txtdays">两个时间之间差了</label>
+    	<input type="text" name="txtdays" id="txt-days" readonly="true" value="">天
+
+		
+    </p>
+    </form>
+</body>
+</html>

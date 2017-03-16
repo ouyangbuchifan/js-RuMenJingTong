@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+	//* indexOf()方法  lastIndexOf()方法     查找子串在字符串中是否存在
+    //* indexOf()方法 索引从0开始，如果没有写明，默认从字符串开始位置向后查； lastindexOf()从字符串后面往前查
+    var myString="Hello Paul, How are you Paul?";
+    var found;
+    found=myString.indexOf("H");             //如果在"Paul"后面加上数字，就是从第数字个字符开始查找 
+    alert("H在第"+found+"个字符上");         //如果indexOf返回-1，说明字符串里没有子串
+    found=myString.lastIndexOf("l");
+    alert("Paul在第"+found+"个字符上");
+
+    //* substr()方法  substring()方法    复制字符串的一个子串
+    var myString="JavaScript";
+    var mySubString=myString.substring(3,4);		//第一个数字是字符串3位置上的字符，4为结束位置
+    alert(mySubString);
+ 
+    var mySubString="JavaScript";
+    var mySubString=myString.substr(3,4);			//第一个数字是字符串3位置上的字符，4为子串长度
+    alert(mySubString);
+
+
+
+    // toLowerCase()和toUPperCase() 方法   转换大小写字母
+
+    var myString="sunweipeng";
+    alert(myString.toUpperCase());
+
+    var myString="I Don't Care About Case";
+    if (myString.toLowerCase()=="i don't care about case") {
+    	document.write("Who care about it?");
+    };
+    </script>
+</body>
+</html>

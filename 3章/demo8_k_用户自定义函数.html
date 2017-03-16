@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>用户自定义函数</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <!--3.3.1 用户自定义函数 -->
+    <!-- JS哪里都可以放，但是函数必须放在调用函数代码之前。可以将函数放在head中，这样保证用到时候已经定义了 -->
+    <script type="text/javascript">
+    	// 定义一个将华氏转换为摄氏的自定放函数，自定义函数名尽量语义化，且不能是JS的保留字，类似with(),while()这样的非法
+    	
+    	// function wenduzhuanhuan(huashi){		//大括号里就是调用函数时使用的代码，即使函数没有参数，小括号也不能省略
+    	// 	var sheshi;					
+    	// 	sheshi=5/9*(huashi)-32;
+    	// 	return sheshi;
+    	// }
+
+    	// var myTemp=wenduzhuanhuan(323);  //调用了上面定义的函数
+    	// document.write(myTemp);
+    </script>
+
+    <script type="text/javascript">
+    //向函数传参。 例如，创建一个简单函数，只接收一个
+	   
+	    // function writeUserName(userName,userAge){
+	    // 	document.write("欢迎来到我的网站"+userName+"<br/>");
+	    // 	document.write("请你自便！");
+	    // 	document.write("你的年龄是"+userAge);
+	    // }
+    	// writeUserName("孙伟鹏！",54);			//调用函数只用在代码中写上函数名，然后括号中写入传递给函数的数据。
+    	
+    	//因为第二个参数是个数值，所以不需要引号。
+    </script>
+
+
+    <!-- test 用户自定义函数 -->
+    <script type="text/javascript">
+	    function convertTosheshi(huashi){
+	    	var sheshi;
+	    	sheshi=5/9*(huashi-32);
+	    	return sheshi;
+	    }
+
+    	var	huashi=new Array(323,43,-459.43);
+    	var sheshi=new Array();
+    	var bianhao;
+    	for (bianhao=0; bianhao <=2; bianhao++) {
+    		sheshi[bianhao]=convertTosheshi(huashi[bianhao]);
+    	}
+    	for (bianhao=2; bianhao>=0; bianhao--) {
+    		document.write("编号为"+bianhao+"的华氏温度"+huashi[bianhao]+"转换为摄氏温度是");
+    		document.write(sheshi[bianhao]+"作为摄氏度"+"<br/>");
+    	}
+    </script>
+</body>
+</html>

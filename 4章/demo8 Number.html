@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Number对象</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    // toFixed() 方法	截取小数点位置，即精确到几位小数,会进行四舍五入。JS中只能截取小数点后0~20位小数 
+    var price=9.99;
+    var shuishou=9.99*1.075;
+    document.write("这件商品的税是"+shuishou);
+    shuishou=shuishou.toFixed(2);
+    document.write("这件商品加上税后是"+price);
+
+    </script>
+</body>
+</html>

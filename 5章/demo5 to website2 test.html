@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+ <script type="text/javascript">
+ 	// 将图片的click事件连接到一个事件处理函数，以随机地改变页面上所显示的图片。
+    var myImages=new Array("images/psb1.jpg","images/psb2.jpg","images/psb3.jpg","images/psb4.jpg");
+    function changeImg(imgNumber){
+    	var imgClicked=document.images[imgNumber];
+    	var newImgNumber=Math.round(Math.random()*3);
+    	while(imgClicked.src.indexOf(myImages[newImgNumber])!=-1){	// 对于indexOf()方法，如果返回值为-1，表示检索的内容里没有内容
+    		newImgNumber=Math.round(Math.random()*3);
+    	}
+    	imgClicked.src=myImages[newImgNumber];
+    	return false;			//书上：返回false是为了取消图片的链接功能。但true与false效果一样
+    }
+    </script>
+</head>
+<body>
+	<h3>点击图片随机切换为另一张图片</h3>
+	<img src="images/psb1.jpg" width="430" height="420" alt="img0" onclick="return changeImg(0)" />
+	<img src="images/psb2.jpg" width="430" height="420" alt="img1" onclick="return changeImg(1)" />
+</body>
+</html>

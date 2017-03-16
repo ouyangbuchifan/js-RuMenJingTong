@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>replace()方法&&search()方法&&match()方法</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	
+</script>
+</head>
+<body>
+	<!-- 查找指定字符串是否存在，找到后，将把匹配字符串转换为指定字符串。 -->
+	<h2>replace() 方法</h2>
+	<script type="text/javascript">
+	var myString="The event will be in May,the 21st of June";
+	document.write(myString+"<br/>");
+	var myCleanedUpString=myString.replace("May","五月");	// 替换后旧的数据并不会改变，它会生成一个新的字符串
+	document.write("转换后的结果是");
+	document.write(myCleanedUpString);
+	</script>
+
+	<h2>search() 方法</h2>
+	<!-- 在字符串中查找特定子串。如果找到，返回在字符串中的位置，否则返回-1 。与indexOf() 作用相似，不过可以与正则使用-->
+	<script type="text/javascript">
+	var myString="Beginning Javascript,Beginning Java,Professional Javascript";
+	document.write(myString.search("Java"));	// return 10, 这是Java第一个单词J在字符串中出现的第一个位置
+	</script>
+
+	<h2>match() 方法</h2>
+	<!-- 与search()方法类似，search()返回的是子串的位置，而match()方法返回的是一个数组 -->
+	<script type="text/javascript">
+	var myString="1997,1998,1999,2000,2001,2002";
+	myNewString=myString.match("2000");		// 本例中不能说明match()方法，因为我们已知要找的元素是2000
+	document.write(myNewString.length);
+	</script>
+	<p>split(),replace(),match()方法都是String对象的</p>
+</body>
+</html>

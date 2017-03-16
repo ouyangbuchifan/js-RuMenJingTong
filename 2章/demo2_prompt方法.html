@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>华氏温度转换为摄氏温度</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 2.4.2 -->
+    <script type="text/javascript">
+    //Equation is 'C = 5/9 ('F-32)
+    var degFahren=prompt("请输入一个华氏温度,",50);					
+    //prompt 函数用来提示用户输入一个值，返回值是一个字符串； 使用这个函数时，需要输入两个参数，第一个字符串，提示信息；第二个为默认值，逗号分开。如果不需要默认值，第二个字符串用空字符串 ""
+    var degCent;
+    degCent=(5/9)*(degFahren-32);
+    alert(degCent);
+    </script>
+</body>
+</html>

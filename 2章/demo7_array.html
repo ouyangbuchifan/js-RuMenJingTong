@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>数组 Array()</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <!-- 2.6 数组 -->
+    <script type="text/javascript">
+    	// 创建数组用 Array() 函数；  注意：  JS中大小写敏感
+    	var shuzu=new Array();
+    	// 也可以先声明一个变量，再把这个变量变为数组；
+    	var shuzu2;
+    	shuzu2=new Array();
+    	// 声明数组长度，直接将长度放到Array()的()中即可。
+    	var shuzu3=new Array(4);
+
+
+
+    	//给数组保存数据。 注：如果数组只有一个元素，不能以这种方式存数据。
+    	shuzu4=new Array("pald",345,"joh",112,"bob",99);
+    	//这个数组还可以以这样的方式写入数据
+    	var shuzu4=new Array();
+    	shuzu4[0]="pald";
+    	shuzu4[1]=345;
+    	shuzu4[2]="joh";
+    	shuzu4[3]=112;
+    	shuzu4[4]="bob";
+    	shuzu4[5]=99;
+
+    	var shuzu5=new Array(3);
+    	shuzu5[12]="ouyang";
+    	//JS比较自由，如果先定义了数组有3个元素，但是定义了12的元素，这样，JS会自动把数组变为13个元素的数组。
+
+
+
+
+
+
+    	var myarray=new Array();
+    	myarray[0]="孙伟鹏";
+    	myarray[1]="joh";
+    	myarray[2]="王悦";
+
+    	document.write("myarray[0]的值为"+myarray[0]+"<br/>");
+    	document.write("myarray[1]的值为"+myarray[1]+"<br/>");
+    	document.write("myarray[2]的值为"+myarray[2]+"<br/>");
+
+    	myarray[1]="jing";
+    	document.write("myarray[1]的值为"+myarray[1]+"<br/>");
+
+
+    </script>
+</body>
+</html>

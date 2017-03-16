@@ -1,0 +1,16 @@
+<!--The myDogs DTD-->
+	<!ELEMENT myDogs (dog+)>
+
+	<!--The <dog/> section-->
+		<!ELEMENT dog(name,age,fullBlood,color)>
+		<!ATTLIST name(#PCDATA)>
+		<!--#PCDATA表示age的子元素是有严格顺序的-->
+		<!ELEMENT age(years,month)>
+			<!--the <age/> section-->
+			<!ELEMENT month(#PCDATA)>
+			<!ELEMENT years(#PCDATA)>
+			<!--END age section-->
+		<!ELEMENT fullBlood (#PCDATA)>	
+		<!ELEMENT color (#PCDATA)>
+		<!--END <dog/> section-->
+<!--END myDogs DTD-->	

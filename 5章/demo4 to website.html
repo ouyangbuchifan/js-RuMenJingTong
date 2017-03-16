@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>5.1.7 将事件处理代码连接到web页面的事件</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body onload="alert('你好，欢迎你')" onunload="alert('你确定要离开吗')">
+	<!-- onclick事件 在行间-->
+	<a href="http://www.baidu.com" name="link" onclick="alert('确定按吗？')">click me</a>
+	<!-- 定义onclick函数然后使用 -->
+	<script type="text/javascript">
+	function linkSomePage_Onclick(){
+		alert("确定按吗？");
+		return true;
+	}
+	</script>
+	<a href="http://www.163.com" name="linkSomePage" onclick="return linkSomePage_Onclick()">网易</a>
+	<a href="###" onclick="return linkSomePage_Onclick()">删除</a>
+
+</body>
+</html>

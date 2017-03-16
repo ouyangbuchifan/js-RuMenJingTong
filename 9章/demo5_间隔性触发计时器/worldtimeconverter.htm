@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	var timeDiff;
+	var selectedCity;
+	var daylightSavingAdjust=0;
+
+	function window_onload(){			// 新加的代码
+		updateTimeZone();
+		window.setInterval("updateTime()",1000);		// setInterval 作用等同于 setTimeout
+	}
+
+	function updateTimeZone(){
+		var lstCity=document.form1.lstCity;
+		timeDiff=lstCity.options[lstCity.selectedIndex].value;
+		selectedCity=lstCity.options[lstCity.selectedIndex].text;
+		updateTime();
+	}
+	function getTimeString(dateObject){		// 格式化时间，接收一个 Date对象作为参数，创建一个"小时：分：秒"的字符串
+		var timeString;
+		var hours=dateObject.getHours();	// 如果直接用 getHours():getMinutes(): 这样来显示，12：01：00会显示成为 12：1：00. 所以要这么做
+		if (hours<10){
+			hours="0"+hours;
+		} 
+		var minutes=dateObject.getMinutes();
+		if (minutes<10){ 
+			minutes="0"+minutes;
+		} 
+		var seconds=dateObject.getSeconds();
+		if (seconds<10){ 
+			seconds="0"+seconds;
+		} 
+		timeString=hours+":"+minutes+":"+seconds;
+		return timeString;
+	}
+	function updateTime(){			// 将当前时间与所选城市的时间显示在页面右边的框架上，即名为resultsFrame的框架。框架集中定义过
+		var nowTime=new Date();		// 定义一个时间，将被初始化为当前的本地时间
+		var resultsFrame=window.top.resultsFrame.document;		// 定义一个 resultsFrame 引用reslutsFrame框架页中的document对象
+		resultsFrame.open();		// open 方法清空框架中的文本，提供一个空白文本以供输入html
+		resultsFrame.write("本地时间是"+getTimeString(nowTime)+"<br/>");	// 用getTimeString()函数来格式化时间
+		nowTime.setMinutes( nowTime.getMinutes()+nowTime.getTimezoneOffset()+parseInt(timeDiff)+daylightSavingAdjust );
+		resultsFrame.write(selectedCity+"的时间是"+getTimeString(nowTime));
+		resultsFrame.close();
+	}
+	function chkDaylightSaving_onclick(){
+		if (document.form1.chkDaylightSaving.checked) {
+			daylightSavingAdjust=60;			// 如果复选框被选中，则给daylightSavingAdjust+60,表示夏令时。	否则为0
+		}
+		else{
+			daylightSavingAdjust=0;		
+		}
+		updateTime();
+	}
+</script>
+</head>
+<body onload="return window_onload()">
+	<!-- 修改之后,页面上的时间一秒钟更新一次 -->
+    <form name="form1">
+    	<select name="lstCity" id="sel-city" size="5" onchange="updateTimeZone()">
+    		<option value="60" selected="selected">Berlin</option>
+    		<option value="330">Bombay</option>
+    		<option value="0">London</option>
+    		<option value="180">Moscow</option>
+    		<option value="-300">New York (EST)</option>
+    		<option value="60">Paris</option>
+    		<option value="-480">San Francisco (PST)</option>
+    		<option value="600">Sydney</option>
+    	</select>
+		<p>
+			本地时间在夏令时，以及选中城市在夏令时
+			<input type="checkbox" name="chkDaylightSaving" onclick="return chkDaylightSaving_onclick()">
+		</p>
+    </form>
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE myDogs SYSTEM "myDogs.dtd">
+<myDogs>
+    <dog breed="Labrador Retriever">
+        <name>Morgan</name>
+        <age>
+            <years>0</years>
+             <month>10</month>
+        </age>
+        <fullBlood>yes</fullBlood>
+        <color>chocolate</color>
+    </dog>
+    <dog breed="Labrador Retriever">
+        <name>Molly</name>
+        <age>
+            <years>8</years>
+            <month>11</month>
+        </age>
+        <fullBlood>yes</fullBlood>
+        <color>yellow</color>
+    </dog>
+    <dog breed="Pomeranian">
+        <name>Casey</name>
+        <age>
+        	<years>6</years>
+        	<months>2</months>
+        </age>
+        <fullBlood>yes</fullBlood>
+        <color>brown</color>
+    </dog>
+</myDogs>

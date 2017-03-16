@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>第一个cookie</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <div class="container">
+    	<h1>第一个cookie</h1>
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<p>
+    				这个页面只是创建了一个cookie
+    			</p>
+    			<p>
+    				cookie 需要设置的子串：name(名称)，value(值),expires(过期时间),path(路径),domain(域),secure(安全性)
+    			</p>
+    		</div>
+    	</div>
+    </div>
+
+    <script type="text/javascript">
+
+
+    document.cookie="UserName=Paul;expires=Tue,28 Dec 2020 00:00:00";		// 创建了一个cookie，属性是UserName，值为Paul,过期时间是2020年十二月28号周二
+
+    var expiresDate=new Date();		// 创建一个Date()对象
+    expiresDate.setMonth()=expiresDate.getMonth()+6;	// 将时间定义为现在时间的6个月以后
+    document.cookie="UserName=Paul;expires="+expiresDate.toGMTSting()+";";	
+    // toGMTSting() 方法与toUTCString() 方法类似，返回一个date对象的GMT时间
+    </script>
+</body>
+</html>

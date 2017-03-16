@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Array对象</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 数组， 数组本身即是一种对象 -->
+    <script type="text/javascript">
+    //length 属性	获取数组中元素的个数,还可以用来计算最后一个数组元素的索引。
+    var names=new Array();
+    names[0]="孙伟鹏";
+    names[1]="雷锋";
+    names[11]="王悦";
+    // document.write("最后一个元素是"+names[names.length-1]);
+
+    //concat() 方法	连接两个数组
+    var names=new Array("孙伟鹏","雷锋","王悦");	
+    var ages=new Array(31,29,27);
+    var lianjie;
+    lianjie=names.concat(ages);		//这样，ages数组的元素会连接在names数组后面。第3个为31，第4个为29……
+
+    // slice() 方法 获取数组中部分元素  包含两个元素，第一个为父元素开始元素（子元素中有），第二个为结束元素（子元素中没有）
+    var names=new Array("王悦","孙伟鹏","安东","翟羽佳");
+    var names2=names.slice(1,3);         //将数组中第二个元素及第三个元素做为一个新数组(不包含3这个元素)
+    var ele;
+    for(ele in names2){
+        document.write("新数组names2的元素是"+names2[ele]+"<br/>");     //遍历新数组
+    }
+
+    // join() 方法 将数组转换为字符串
+    var myShopping=new Array("Eggs","Milk","Potatoes","Cereal","Banana");
+    var myShoppingList=myShopping.join("<br/>");
+    document.write(myShoppingList);
+
+    // sort() 方法 对数组进行排序 升序
+    document.write("<h3>srot() 方法</h3>");
+    var names=new Array("Paul","pad","Sara","Louis","Adam","Bob");
+    var ele;
+    names.sort();
+    document.write("Now the names again in order"+"<br/>");
+    for(ele=0;ele<names.length;ele++){
+        document.write(names[ele]+"\t");    
+    }
+
+    //reverse() 方法 反转数组中的元素
+    document.write("<h3>reverse()方法 </h3>");
+    var number1=new Array("哥","帅","大","是","鹏","伟","孙");
+    number1.reverse();
+    var number2=number1.join("\t");
+    document.write(number2);
+
+    </script>
+</body>
+</html>

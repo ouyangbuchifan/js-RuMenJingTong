@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>4.2.6 JS中的类</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 如果只需要实现某个功能，而不需要保存数据，只用编写一个函数库。否则，就应该来创建特定的对象。这一节比较难懂，可以之后再看 -->
+    <script type="text/javascript">
+    	//创建一个客户预订信息的类－－customerBooking,第一步先给类创建一个构造函数
+    	function CustomerBooking(bookingID,customerName,film,showDate){
+    		this.customerName=customerName;		//在构造函数或者类中，this关键字代表的是当前对象
+    		this.bookingId=bookingId;		//引用当前对象的bookingId属性，并将其值作为构造函数的值。
+    		this.showDate=showDate;
+    		this.film=film;
+    	}
+    </script>
+</body>
+</html>

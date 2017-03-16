@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <script type="text/javascript">
+    	// 定义一个setCookie函数
+    	function setCookie(cookieName,cookieValue,cookiePath,cookieExpires){
+	    	cookieValue=escape(cookieValue);	
+	    	if (cookieExpires=="") {		
+	    		var nowDate=new Date();
+	    		nowDate.setMonth(nowDate.getMonth()+6);
+	    		cookieExpires=nowDate.toGMTString();
+	    	}
+	    	if (cookiePath=="") {		
+	    		cookiePath=";path="+cookiePath;		
+	    	}
+	    	document.cookie=cookieName+"="+cookieValue+";expires="+cookieExpires+cookiePath;
+
+
+	    }
+	    // 使用setCookie()函数
+	    	setCookie("Name","Bob","","");
+	    	setCookie("Age","101","","");
+	    	setCookie("FirstVisit","10 May 2007","","");
+	    	alert(document.cookie);
+
+	    // 使用setCookie()函数定义一个名为Name,值为Bob,	并且path属性为/Mystore,过期时间为1年之后
+	    	var expiresDate=new Date();
+	    	expiresDate.setMonth(expiresDate.getMonth()+12);
+	    	setCookie("Name","Bob","/Mystore","expiresDate.toGMTString()");
+	    	// 如果要修改这个cookie的值，只用重新定义一次就好。
+	    	setCookie("Name","Bob","/Mystore","");	
+	    	// 如果要删除一个cookie的值，只用将时间定义为一个过去的时间就好
+	    	setCookie("Name","Bob","/mystore","Tue, 2 Dec 2023 00:00:00");		// 这个cookie已经被删掉了，浏览器里找不到
+    </script>
+</body>
+</html>

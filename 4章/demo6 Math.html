@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>4.2.2 Math对象</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    // Math对象		全局对象 提供了大量进行数学运算的操作方法
+
+    // 计算一个圆的面积
+    var radius=prompt("请输入这个圆的半径","");
+    var area=(Math.PI)*radius*radius;
+    document.write(area+"<br/>")
+
+    // abs()方法  返回所传入参数的绝对值。
+    var Number=-234;
+    document.write(Number+"的绝对值是"+Math.abs(Number));
+
+    // ceil()方法 把一个数值向上舍入到最小整数。
+    var Number=100.231;
+    alert(Math.ceil(Number));	//Math.ceil()  把小数部分去掉并转为最近的整数
+    alert(parseInt(Number));	//ParseInt()   只是去掉小数部分	,它是JS的一个内置对象，但不是Math对象的方法
+
+    // floor()方法 与ceil对应，向下取整  Math.floor(100.43)值为100
+    // round()方法 四舍五入
+    var Number=100.34;
+    var Number2=100.56;
+    alert(Number+"用了ceil()方法之后是"+Math.ceil(Number));
+    alert(Number+"用了floor()方法之后是"+Math.floor(Number));
+    alert(Number2+"用了round()方法之后是"+Math.round(Number2));
+
+    </script>
+</body>
+</html>

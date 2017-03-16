@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+    *{margin: 0;padding: 0;}
+        ul,li,ol{list-style: none;}
+        body{padding: 30px;}
+        .tab{margin: 0 0 30px;}
+    .tab>.list{border-left: 1px solid #ccc;overflow: hidden;}
+    .tab>.list>li{float: left;width: 100px;line-height: 35px;text-align: center;border: 1px solid #ccc;border-left: none;cursor: pointer}
+    .tab>.list>li.on{background: #eee;border-bottom: 1px solid #eee;box-shadow: 0px 0px 5px #ccc inset;}
+    .content{width: 373px;border: 1px solid #ccc;border-top: none;padding: 15px;}
+    .content>div{display: none;}
+/*    .content>div:nth-of-type(1){display: block;}*/
+    .content>div.on{display: block;}
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <ul class="list">
+            <li id="tab_menu_1" onclick="demo(1,1,4)" class="on">生活1</li>
+            <li id="tab_menu_2" onclick="demo(2,1,4)">生活2</li>
+            <li id="tab_menu_3" onclick="demo(3,1,4)">生活3</li>
+            <li id="tab_menu_4" onclick="demo(4,1,4)">生活4</li>
+        </ul>
+        <div class="content">
+            <div id="tab_cont_1" class="on">1</div>
+            <div id="tab_cont_2">2</div>
+            <div id="tab_cont_3">3</div>
+            <div id="tab_cont_4">4</div>
+        </div>
+    </div>
+
+    <div class="tab">
+        <ul class="list">
+            <li id="tab_menu_5" onclick="demo(5,5,8)" class="on">生活1</li>
+            <li id="tab_menu_6" onclick="demo(6,5,8)">生活2</li>
+            <li id="tab_menu_7" onclick="demo(7,5,8)">生活3</li>
+            <li id="tab_menu_8" onclick="demo(8,5,8)">生活4</li>
+        </ul>
+        <div class="content">
+            <div id="tab_cont_5" class="on">1</div>
+            <div id="tab_cont_6">2</div>
+            <div id="tab_cont_7">3</div>
+            <div id="tab_cont_8">4</div>
+        </div>
+    </div>
+    
+    
+    
+       
+       
+       
+       
+       
+       
+       <script>
+       // tab
+        function demo(id,minid,top){
+            for(var i=minid;i<minid+top;i++){
+                if(i==id){
+                    document.getElementById("tab_menu_"+i).className="on";
+                    document.getElementById("tab_cont_"+i).className="on";
+                }else{
+                    document.getElementById("tab_menu_"+i).className="";
+                    document.getElementById("tab_cont_"+i).className="";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

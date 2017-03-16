@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>数据类型转换2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 2.5 数据类型转换2 -->
+    <script type="text/javascript">
+    	// var myString="56.02 摄氏度";
+    	// var myInt, myFloat;
+    	// document.write("\"myString\""+ parseInt(myString)+"度作为摄氏度");
+
+    	// myInt=parseInt(myString);
+    	// document.write("\""+ myString +"\"当转换为整数时" +myInt +"<br/>");
+
+    	// myFloat=parseFloat(myString);
+    	// document.write("\"myString\"当转换为小数时为"+myFloat);
+
+
+    	document.write(parseInt("dfdf")+"<br/>");			//当内容为空或者不为数值时，会跳出NaN (not a number)
+
+
+    	//isNaN() 函数检查某个值是不是NaN值。  结果为布尔值
+    	var t1,t2;
+    	t1=isNaN("dfdfdf")
+    	document.write(t1+"<br/>");
+
+    	t2=isNaN("123");
+    	document.write(t2);
+
+    </script>
+</body>
+</html>

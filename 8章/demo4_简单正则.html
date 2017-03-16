@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>简单的正则</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <style type="text/css">
+        html{font-family: 微软雅黑;}
+        .wrap{padding: 0 15px;}
+        h1{text-align: center;}
+        .content{}
+        .content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+        .content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+        .content .row{margin-bottom: 15px;}
+        p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+        </style>
+	</head>
+<body>
+    <div class="container">
+        <h1>用replace()和正则替换子串</h1>
+        <p> 
+            g: 匹配全部 <br/>
+            i: 忽略大小写
+        </p>
+        <hr>
+        <script type="text/javascript">
+        document.write("<b>1.只匹配字符串中第一个子串</b>"+"<br/>");
+        var myString="Paul,Paula,Pauline,paul,Paul";
+        var myRegExp=/Paul/;     // 这种写法只是匹配字符串中的第一个子串，
+        myString=myString.replace(myRegExp,"孙伟鹏");  // replace() 两个参数，前一个是被替换的，后一个是新的。
+        document.write(myString+"<br/>");
+
+        document.write("<b>2.匹配全部子串</b>"+"<br/>");
+        var myString="Paul,Paula,Pauline,paul,Paul";
+        var myRegExp=/Paul/g;
+        myString=myString.replace(myRegExp,"孙伟鹏");
+        document.write(myString+"<br/>");
+
+        document.write("<b>3.忽略大小写</b>"+"<br/>");
+        var myString="Paul,Paula,Pauline,paul,Paul";
+        var myRegExp=/Paul/gi;      //这样就是忽略大小写，并匹配全部子串。但是这样连包含子串的字符也替换掉了。
+        myString=myString.replace(myRegExp,"孙伟鹏");
+        document.write(myString+"<br/>");
+        </script>
+    </div>
+    
+</body>
+</html>

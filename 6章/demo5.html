@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>密码框,隐藏域,文本域</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function sub_pwd(){
+		alert(document.myform.txt_pwd.value);
+	}
+</script>
+</head>
+<body>
+	<form action="" name="myform">
+    <input type="password" name="txtpwd" id="">
+    <textarea name="textword" id="" cols="30" rows="10" wrap="off"></textarea>	
+    <!-- cols表示宽，rows表示高，都以字符为单位。wrap:soft 位置超过行宽时自动换行，换行标记不会传到服务器端。wrap:hard 自动换行。且换行标记传到服务器 wrap:off 不允许换行.
+	注：textarea标签没有value属性，但是textarea对象有value属性。
+     -->
+    </form>
+</body>
+</html>

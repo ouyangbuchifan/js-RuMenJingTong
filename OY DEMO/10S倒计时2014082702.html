@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h2>倒计时</h2>
+    <button>开始</button>
+    
+	<div id="zha">请等待<span id="dd">3</span>秒</div>
+    <div>
+    	<script type="text/javascript">
+    	function run(){
+		    var s = document.getElementById("dd");
+
+		    if(s.innerHTML== 0){
+		        s.innerHTML="炸弹爆炸了！";
+		        return false;
+		        s.style.display="none";
+		    }
+		    s.innerHTML = s.innerHTML* 1 - 1;
+		}
+		window.setInterval("run();", 1000);
+
+
+		// function run(){
+		//     var s = document.getElementById("dd").innerHTML;
+		//     if(s== 0){
+		//         s="炸弹爆炸了！";
+		//         return false;	
+		//     }
+		//     s = s* 1 - 1;
+		// }
+		// window.setInterval("run();", 1000);
+    	</script>
+    	<p>
+    		第二个写法是错的。因为 s如果获取到innerHTML,它是一个字符串，与ID的dd没有关系了。就像 b=c; a=b; a的值变化不会影响到b,c。而正确的写法，获取到的是名为dd的 标签，是个对象。
+    	</p>
+    </div>
+</body>
+</html>

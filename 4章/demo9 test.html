@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>sort()方法 和 reverse()方法 练习</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    //创建一个程序，用户输入数字，来对数组进行正序排列或者倒序；
+    var number=new Array(1,4,2,5,6,8,3,7);
+    var sx=prompt("输入一个数字来进行排序，1：正序，2：倒序","");
+    if (sx==1) {
+    	number.sort();
+    	document.write(number+"\t");
+    }
+    else if (sx==2) {
+    	number.sort();
+    	number.reverse();
+    	document.write(number+"\t");
+    }
+    else{
+    	document.write("你输入的不是1或者2");
+    }
+    </script>
+</body>
+</html>

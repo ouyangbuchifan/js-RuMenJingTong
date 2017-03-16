@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>4.2.2 6 random()方法  pow()方法</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    // random()方法   返回一个0~1(不包括1)的随机浮点数
+    var throwCount;
+    var diceThrow;
+    for (throwCount=0; throwCount<10; throwCount++) {
+        diceThrow=(Math.floor(Math.random()*6)+1);      
+        alert(diceThrow);               //输出一个小于7的随机整数
+        // document.write(Math.random()+"<br/>");  //输出10个随机数
+    }
+
+    // pow()方法  计算一个数的指定幂，比如pow(2,8) 则是2*2*2*2*2*2*2*2 2的8次方
+    // document.write("2的8次方是"+Math.pow(2,8));      //pow()方法
+
+    function fix(first,second){                     //利用pow()函数定义一个fix()函数,用于精确小数位数
+        var div;
+        div=Math.pow(10,second);
+        first=Math.round(div*first)/div;
+        return first;
+    }
+
+    var number1=prompt("Enter the number with decimal places you want to fix","");      //输入2.342323,
+    var number2=prompt("How many decimal places do you want ?","");                     //输入2，将精确到2位小数
+    document.write(number1+"fixed to"+number2+"is");
+    document.write(fix(number1,number2));
+    </script>
+</body>
+</html>

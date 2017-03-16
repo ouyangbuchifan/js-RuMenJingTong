@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>正则分组</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>正则表达式的分组</h1>
+	    <p>将多个正则组合为一个正则表达式项，只要用()就行。</p>
+	    <p class="lead">从字符串中匹配到JavaScript与VBScript</p>
+	    <p class="lead">代码1. 会将VBJavaScript 这样的也匹配，</p>
+	    <p>
+	    	<script type="text/javascript">
+	    	var myString="Javascript,VBScript，Script and Perl";
+	    	var myRegExp=/\b(Java)?(VB)?Script\b/gi;		// \b包围单词用来匹配单词
+	    	myString=myString.replace(myRegExp,"静态");
+	    	document.write(myString);
+	    	</script>
+	    </p>
+	    <p class="lead">代码2. 用 | 或来解决上述问题</p>
+	    <p>
+	    	<script type="text/javascript">
+	    	var myString="Javascript,VBScript，VBJavaScript and Perl";
+	    	var myRegExp=/\b(VB|Java)Script\b/gi;
+	    	myString=myString.replace(myRegExp,"***");
+	    	document.write(myString);
+	    	</script>
+	    </p>
+	    <hr>
+	    <h3>引用分组</h3>
+	    <p class="lead">如果一行字符串中相同的子串出现两次，则第二个替换为error</p>
+	    <p>var myString="007,007,001,002,002,003,002,004";</p>
+	    <p>
+	    	<script type="text/javascript">
+	    	var myString="007,007,001,002,002,003,002,004";
+	    	var myRegExp=/(\d+),\1/g;		// 引用分组， 只用\1,如果是引用第二个定义的y\2  需要匹配的是数字后加, 所以,不能省略 
+	    	myString=myString.replace(myRegExp,"error");
+	    	document.write(myString);
+	    	</script>
+	    </p>
+	</div>
+    
+</body>
+</html>

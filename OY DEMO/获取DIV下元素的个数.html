@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+</style>
+</head>
+<body>
+   <div class="demo" id="demo">
+   	<input type="text" class="txt" id="txt1">
+    <input type="text" class="txt" id="txt1">
+   	<span>
+   		<input type="text" class="txt" id="txt">
+   		<input type="text" class="txt" id="txt">
+   	</span>
+   	
+   </div>
+
+
+    <script type="text/javascript">
+   	var times = document.getElementById("demo").getElementsByTagName("input").length;
+	// alert(times);
+	if (times==1) {
+		document.getElementById("demo").style.display="none";
+		// break;
+	}
+	else if(times>1){
+		document.getElementById("demo").style.display="block";
+	}
+	// getElementById()  里面写的是层的ID， getElementsByTagName()  里面写的是标签名
+
+    </script>
+</body>
+</html>

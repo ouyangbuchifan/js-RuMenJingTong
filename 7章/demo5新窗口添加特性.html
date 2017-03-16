@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>7.1.2 为浏览器新窗口添加特性</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function test(){
+		var newWindow;
+		newWindow=window.open("","test","description=no,width=300px,height=300px,location=0,menubar=0,resizable=no,scollbars=no,status=no,top=300px;");	//并不是所有的浏览器都支持这些属性
+		newWindow.document.write("<h1 style='font-size:16px;margin:0 auto;text-align:center;'>这里是标题</h1><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>");
+		newWindow.document.write("<p>111</p>");
+	}
+	function test2(){
+		var newWindow;
+		newWindow=window.open("","test","width=200,height=200,location,menubar,resizable");
+		newWindow.document.write("hello,");
+	}
+</script>
+</head>
+<body>
+    <a href="###" onclick="test()">打开一个新的窗口</a>
+    <a href="###" onclick="test2()">打开第二个窗口</a>
+</body>
+</html>

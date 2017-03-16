@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<form action="javascript:" name="form1" onsubmit="return checkForm(document.form1)">
+    				<input type="text" id="text1" name="text1">
+    				<br>
+    				<input type="checkbox" name="checkbox1" id="checkbox1">
+    				<label for="checkbox1">语文</label>
+    				<br>
+    				<input type="checkbox" name="checkbox2" id="checkbox2">
+    				<label for="checkbox2">数学</label>
+    				<br>
+    				<input type="text" id="text2" name="text2">
+    				<p>
+    					<input type="submit" id="submit1" name="submit1" value="Submit" >
+    				</p>
+    				
+    			</form>
+    		</div>
+    	</div>
+    </div>
+
+    <script type="text/javascript">
+    function checkForm(theForm){
+    	var formValid=true;
+    	var elementCount=0;
+    	while(elementCount<theForm.length){
+    		if (theForm.elements[elementCount].type=="text") {
+    			if (theForm.elements[elementCount].value=="") {
+    				alert("请填写所有的表单");
+    				theForm.elements[elementCount].focus();		// 注意focus()是个方法，不能少括号
+    				formValid=false;
+    				break;
+    			}
+    		}
+    		elementCount++;  		// 不要落下自增
+    	}
+    	return formValid;
+    }
+
+    
+    </script>
+</body>
+</html>

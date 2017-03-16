@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>while循环</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<!-- 3.2.3 while循环
+	当知道一个循环有多少次时，用for语句方便。如果不知道一个循环要执行多少次，可以用while循环 -->
+    <script type="text/javascript">
+    // sheshi=new Array();
+    // huashi=new Array(32,123,212);
+    // var bianhao=0;
+    // while(bianhao<3){			//如果bianhao<3,执行循环
+    // 	sheshi=5/9*(huashi[bianhao]-32);   	
+    // 	document.write("摄氏数组里"+bianhao+"是"+sheshi+"<br/>");
+    // 	bianhao++;				//当bianhao==3时，循环中止.   如果不加这句，是个死循环，电脑会卡住的
+    // }
+    
+    </script>
+
+    <script type="text/javascript">
+    // var t1=0;
+    // while(t1<=10){
+    // 	alert("这个数字小于10");
+    // 	t1++;
+    // 	if (t1==10) {						//这是一个错误的示例，如果t1=10,将t1永远赋值为10，循环不会中止
+    // 		document.write("最后一次循环！");
+    // 	};
+    // }
+    </script>
+
+
+    <!-- do...while循环 -->
+    <script type="text/javascript">			//一个do...while循环来让用户输入内容，直到输入为数字
+	    var userAge;
+	    do {
+	    	userAge=prompt("请输入你的年龄","");
+	    }
+	    while(isNaN(userAge)==true);				//循环条件是： 如果用户输入的不是数字
+	    document.write("输入正确，你的年龄是"+userAge);
+    </script>
+</body>
+</d

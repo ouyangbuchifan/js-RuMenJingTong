@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>4.2习题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+
+</head>
+<body>
+	<!-- 利用indexOf()方法来统计子串在字符串中出现的次数 -->
+	<script type="text/javascript">
+	myString="Welcome to Worx books.";
+	myString=myString+"The Worx website is www.Worx.com.";
+	myString=myString+"Visit the Worx website today.Thanks for buying Worx";
+	
+	var foundAtPosition=0;
+	var wroxCount=0;
+
+	while( foundAtPosition!=-1){
+		foundAtPosition=myString.indexOf("Worx",foundAtPosition);
+		if (foundAtPosition!=-1) {
+			wroxCount++;
+			foundAtPosition++;
+		}		
+	}
+	document.write("有"+wroxCount+"个Wrox在这句话里");
+
+	// 获取一个网址中的文件名
+	var fileName=window.location.href;
+	fileName=fileName.substr(fileName.lastIndexOf("/")+1);
+	alert(fileName);
+	</script>
+</body>
+</html>

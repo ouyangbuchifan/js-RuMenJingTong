@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>第5章习题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function change(){
+		alert("这是一个外链，你确定继续吗");
+		return true;
+	}
+	function block2(){
+		for (var i = 0; i < document.links.length; i++) {
+      // document.write(document.links[i].href+"<br/>");        //onload事件中不可用document.write()方法,页面加载完后onload()才会触发
+      alert(document.links[i].href);        
+	  }
+  }
+</script>
+</head>
+<body onload="block2()">
+    <script type="text/javascript">
+    // 练习一下获取URL及文件
+    // var j=window.location.href;
+    // var z=j.substring(j.lastIndexOf("/")+1);
+    // document.write(j);
+    // alert(z);
+    </script>
+
+
+
+
+
+   	<!-- 这里是正式习题 -->
+   	<!-- 第1题，输入几个链接，利用window的onload事件把链接地址放到页面上. -->
+   	<!-- 答案在body及head里 -->
+   	<h3>第1题</h3>
+   	<a href="http://www.baidu.com">1</a>
+   	<a href="http://www.163.com">2</a>
+   	<a href="http://www.qq.com">3</a>
+   	<a href="http://www.sohu.com">4</a>
+</body>
+</html>

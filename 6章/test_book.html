@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>第6章 习题 book版</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	//第 1 题
+	function hzhuans(huashi){
+		var sheshi=5/9*(huashi-32);
+		return sheshi;
+	}
+	function zhuan(){
+		var txtHua=document.form1.txtHua;
+		if ( (txtHua.value=="")||isNaN(txtHua.value) ) {	//先判断用户的输入，给出反馈
+			alert("请输入一个华氏温度，数字型");
+		}
+		else{
+			txtHua.value=hzhuans(txtHua.value);		//如果用户输入正确，调用转换函数
+		}
+	}
+
+	//第 2 题
+	var CompItems= new Array();
+
+	CompItems[100]=1000;
+	CompItems[101]=1250;
+	CompItems[102]=1500;
+
+	CompItems[200]=35;
+	CompItems[201]=65;
+	CompItems[202]=95;
+
+	CompItems[300]=50;
+	CompItems[301]=75;
+	CompItems[302]=100;
+
+	CompItems[400]=10;
+	CompItems[401]=15;
+	CompItems[402]=25;
+
+	function updateOrderDetails(){
+		var total=0;
+		var orderDetails="";
+		var formElement;
+		// cpu
+		formElement= document.form2.cboProcessor[document.form2.cboProcessor.selectedIndex];
+		total=parseFloat(CompItems[formElement.value]);
+		orderDetails="Processor: "+formElement.text;
+		orderDetails=orderDetails+" $"+CompItems[formElement.value]+" \n";
+		// hard drive 硬盘
+		formElement=document.form2.cboHardDrive[document.form2.cboHardDrive.selectedIndex];
+		total+=parseFloat(CompItems[formElement.value]);
+		orderDetails+="Hard drive: "+" $"+CompItems.text;
+		orderDetails+=" $"+CompItems[formElement.value]+" \n";
+		// CD-ROM
+		formElement=document.form2.chkCDROM;
+		if (formElement.checked==true) {
+			orderDetails=orderDetails+"CD-ROM:$"+CompItems[formElement.value]+" \n";
+			total+=parseFloat(CompItems[formElement.value]);
+		}
+		// DVD
+		formElement=document.form2.chkDVDROM;
+		if (formElement.checked==true) {
+			orderDetails+="DVD-ROM: $"+CompItems[formElement.value]+" \n";  
+			total+=parseFloat(CompItems[formElement.value]);
+		}
+		// chkScanner
+		formElement=document.form2.chkScanner;
+		if (formElement.checked==true) {
+			orderDetails+="chkScanner: $"+CompItems[formElement.value]+"\n";
+			total+=parseFloat(CompItems[formElement.value]);
+		}
+		
+		// Case 机箱
+		formElement=document.form2.radCase;
+		if (formElement[0].checked==true) {
+			orderDetails+="Desktop Case: $"+CompItems[formElement[0].value];
+			total+=parseFloat(CompItems[formElement[0].value]);
+		}
+		else if(formElement[1].checked==true){
+			orderDetails+="Mini Tower: $"+CompItems[formElement[1].value];
+			total+=parseFloat(CompItems[formElement[1].value]);
+		}
+		else{
+			orderDetails+="Full Tower: $"+CompItems[formElement[2].value];
+			total+=parseFloat(CompItems[formElement[1].value]);
+		}
+		// 单选按钮组的另一种方法来输出。但是因为radio没有text属性，所以无法显示各种机箱的标题。
+		// for (var i = 0; i <formElement.length; i++) {
+		// 	if (formElement[i].checked==true) {
+		// 		orderDetails+="Case: $"+CompItems[formElement[i].value]+"\n";
+		// 		total+=parseFloat(CompItems[formElement[i].value]);
+		// 	}
+		// }
+
+		//输出内容
+		orderDetails=orderDetails+"\n \n Total Order Cost is $"+total;
+		document.form2.txtOrder.value=orderDetails;
+	}
+
+</script>
+</head>
+<body>
+	<article>
+		<h3>1.根据2章温度转换例子，创建表单，将其连接到已有代码，使用户可以输入一个华氏温度，转换为摄氏温度</h3>
+		<div>
+			<p>请输入一个华氏温度</p>
+			<form action="javascript:" name="form1">
+				<input type="text" name="txtHua" id="txt-hua" placeholder="华氏温度" value="0">
+				<input type="submit" name="subZhuan" id="sub-zhuan" value="转换" onclick="zhuan()">
+			</form>
+		</div>
+	</article>
+	<article>
+		<h3>2.创建一个表单，模拟用户在网上买电脑配件，包括：CPU，处理速度，内存大小，硬盘容量，DVD-ROM,声卡，显卡类型fo</h3>
+		<form action="javascript:" name="form2">
+			<table>
+				<tr>
+					<td width="300">
+						CPU	
+						<br/>
+						<select name="cboProcessor" id="cbo-processor">
+							<option value="100">MegaPro 10ghz</option>
+							<option value="101">MegaPro 12</option>
+							<option value="102">MegaPro 15ghz</option>
+						</select>
+						<br/><br/>
+						Hard drive
+						<br/>
+						<select name="cboHardDrive" id="cbo-harddrive">
+							<option value="200">30tb</option>
+							<option value="201">40tb</option>
+							<option value="202">60tb</option>
+						</select>
+						<br/><br/>
+						CD-ROM
+						<input type="checkbox" name="chkCDROM" value="300">
+						<br/>
+						DVD-ROM
+						<input type="checkbox" name="chkDVDROM" id="chk-dvdrom" value="301">
+						<br/>
+						Scanner	扫描器
+						<input type="checkbox" name="chkScanner" id="chk-scanner" value="302">
+						<br/><br/>
+						Desktop Case  桌面型机箱
+						<input type="radio" name="radCase" id="rad-case" value="400">
+						<br/>
+						Mini Tower	小型塔式机箱
+						<input type="radio" name="radCase" id="rad-case2" value="401">
+						<br/>
+						Full Tower	大型塔式机箱
+						<input type="radio" name="radCase" id="rad-case3" value="402">
+						<p>
+							<input type="button" value="提交" name="btnUpdate" onclick="updateOrderDetails()">
+						</p>
+					</td>
+					<td>
+						<textarea name="txtOrder" id="txt-Order" cols="30" rows="10"></textarea>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</article>
+    
+
+</body>
+</html>

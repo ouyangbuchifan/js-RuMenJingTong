@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <p>
+        // 其一,今有物不知其数,三三数之剩二,五五数之剩三,七七数之剩二,物几何?
+        
+    </p>
+    <p>
+        // 有一个数， 与3求余是2，与5求余是3，与7求余是2
+    </p>
+    <script type="text/javascript">
+    	// 其一,今有物不知其数,三三数之剩二,五五数之剩三,七七数之剩二,物几何?
+    	// 有一个数， 与3求余是2，与5求余是3，与7求余是2
+
+
+    var i;
+    for (i=1;i<=1000; i++) {
+    	if((i%3==2)&&(i%5==3)&&(i%7==2)) {
+    		document.write(i+"<br/>");
+    		continue;
+    	}
+    }
+
+    document.write("第二题"+"<br/>");
+    for (i=1; i <= 100; i++) {
+    	if (i%3==2) {
+    		if(i%5==3){
+    			if(i%7==2){
+    				document.write(i+"<br/>");
+    			}
+    		}
+    	}
+    }
+
+
+
+    </script>
+    <h4>下面是个死循环，慎用</h4>
+    <script type="text/javascript">
+    var t1;
+    for (var i = 0; i<= 100; i++) {
+    	while ((i%3==2)&&(i%5==3)&&(i%7==2)) {
+    		alert(i);
+    		break;
+    	};
+    };
+    </script>
+</body>
+</html>

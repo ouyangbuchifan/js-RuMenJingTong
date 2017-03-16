@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+<script type="text/javascript">
+	var timerID;
+	function window_onload(){
+		timerID=setTimeout("alert('times up!')",3000);
+		alert("timer set");
+	}
+	function btnStopTimer_onclick(){
+		clearTimeout(timerID);
+		alert("停止时间，清除clearTimeout");
+	}
+</script>
+</head>
+<body onload="window_onload()">
+	<div class="container">
+	    <form action="javascript;" name="form1">
+    		<input type="button" value="停止时间" onclick="return btnStopTimer_onclick()" name="btnStopTimer">
+    	</form>
+    	<p class="lead">
+    		例子：用setTimeout()方法来更新广告语。下面的代码创建一个具有广告标语的页面，
+    	</p>
+	</div>
+
+</body>
+</html>

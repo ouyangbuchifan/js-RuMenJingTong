@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>使用Date 对象获取当前日期</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    var months=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+    var dateNow=new Date();
+    var yearNow=dateNow.getFullYear();
+    var monthNow=months[dateNow.getMonth()];
+    var dayNow=dateNow.getDay();
+    var daySurffix;
+    switch(dayNow){
+    	case 1:
+    	case 21:
+    	case 31:
+    		daySurffix="st";
+    		break;
+    	case 2:
+    	case 22:
+    		daySurffix="nd";
+    		break;
+    	case 3:
+    	case 23:
+    		daySurffix="th";
+    		break;
+    	default:
+    		daySurffix="rd";
+    		break;
+    }
+
+    document.write("It is the "+dayNow+daySurffix+" day");
+    document.write(" in the month of "+monthNow);
+    document.write(" in the year"+yearNow);
+    </script>
+</body>
+</html>

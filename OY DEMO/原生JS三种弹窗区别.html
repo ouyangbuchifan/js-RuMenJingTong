@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>alert prompt confirm的区别</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<p>
+		对话框有三种：
+	</p>
+	<p>
+		1.只提醒，只有确定按钮
+	</p>
+	<p>
+		2.用于确认，可以有确认按钮和不确认按钮
+	</p>
+	<p>
+		3.一个带输入框的弹窗，可以由用户输入值。常用于留言板或者论坛输入内容时插入UBB格式图片
+	</p>
+	<div>
+		<input type="button" value="alert" onclick="ale()">
+	</div>
+	<div>
+		<input type="button" value="confirm" onclick="conf()">
+	</div>
+	<div>
+		<input type="button" value="prompt" onclick="prom()">
+	</div>
+   <script type="text/javascript">
+   function ale(){
+   	alert("这就是一个单纯的弹窗");	// 单纯一个弹窗，只有一个按钮
+   }
+
+   function conf(){
+   	if ( confirm("你确定要跳转到网易吗？") ) {
+   		document.location.href="http://www.163.com";
+   	}
+   	else{
+   		alert("你选择了取消");
+   	}
+   }
+
+   function prom(){
+   	var name=prompt("请输入你的名字","");	// 将输入的名字赋给name prompt有两个参数，第一个是提示文字，第二个是文本框。如果没有默认值即没字，
+   	if (name) {			// 如果name不为空的话
+   		alert("你的名字是"+name);
+   	}
+   }
+
+   </script>
+</body>
+</html>

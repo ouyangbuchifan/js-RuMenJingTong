@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>8.7 习题</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+</head>
+<body>
+    <div class="container">
+    	<h1>8.7习题</h1>
+    	<article>
+    		<div class="row">
+	    		<h2>习题1</h2>
+		    	<p class="lead">下面这个JS有错，找到并修改</p>
+		    	<p class="lead"> myString="this sentence has has a fault and and we need to fix it"; </p>
+		    	<p class="lead">
+		    		<script type="text/javascript">
+		    		var myString="this sentence has has a fault and and we need to fix it";
+		    		// var myRegExp=/(\b\w+\b) \1/g;			// \1表示引用前面那个分组()，就是重复一次
+		    		// var myRegExp=new RegExp("(\b\w+\b) \1");			//这是源题上的错误，修改为下一行。
+		    		var myRegExp=new RegExp("(\\b\\w+\\b) \\1","g");
+		    		myString=myString.replace(myRegExp,"$1");		// $1 是在replace()方法中引用第一个分组匹配的字符串
+		    		document.write(myString);
+		    		</script>
+		    	</p>
+	    	</div>
+    	</article>
+    	
+    	<hr>
+    	<div class="row">
+    		<h2>习题2</h2>
+    		<p class="lead">用正则将字符串中的单字a全换成the</p>
+    		<p class="lead"> myString="a dog walked in off a street and ordered a finest beer"; </p>
+    		<p class="lead">
+    			<script type="text/javascript">
+    			var myString="a dog walked in off a street and ordered a finest beer";
+    			var myRegExp=/\ba\b/g;
+    			var answerString=myString.replace(myRegExp,"the");
+    			document.write("习题2的答案是："+answerString);
+    			</script>
+    		</p>
+    	</div>
+    	<hr>
+    	<div class="row">
+    		<h2>习题3</h2>
+    		<p class="lead">假如有一个留言板，写一个正则，判断哪些词语是禁用词，删掉禁用词</p>
+    		<p class="lead">
+    			<script type="text/javascript">
+    			var myRegExp=/(sugar)?candy|choc(olate|holic)?/gi;
+                var myString="Mmm, I love chocolate,I'm a chocoholic."+"I love candy too,sweet,sugar candy";
+                myString=myString.replace(myRegExp,"salad");
+                alert(myString);
+    			</script>	
+    			<!-- <form action="javascript:" method="post" name="form1">
+    				<div class="form-group">
+    					<textarea name="text1" id="text-1" cols="30" rows="10"></textarea>
+    				</div>
+    				<input type="submit" value="提交" class="btn btn-primary" onclick="return test(document.form1.text1)">				
+    			</form> -->
+    			
+    		</p>
+    	</div>
+    </div>
+</body>
+</html>

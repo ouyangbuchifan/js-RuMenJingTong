@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.nav{width: 980px;height: 250px;margin: 0 auto;}
+</style>
+<script type="text/javascript">
+	function change(){
+		// document.body.style.backgroundColor="#f60";  改变页面背景
+	}
+	function changenav(){
+		document.getElementById("nav").style.backgroundColor="#f60";
+	}
+</script>
+</head>
+<body>
+	<div class="nav" id="nav">
+		111
+		<a href="###" onclick="return changenav()">222</a>
+	</div>
+    <script type="text/javascript">
+    var bg;
+    bg=document.getElementById("nav").style.background;			// 获取某个DIV的背景色
+    // alert(bg);
+    </script>
+</body>
+</html>

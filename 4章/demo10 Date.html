@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Date 对象</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    // 创建一个Date对象
+    var date1=new Date();		//直接定义
+    var date2=new Date(949278000000);	//定义时传入一个格林威治标准时间，比较少用
+    var date3=new Date("31 January 2010");	//还可以写成 31 Jan 2010;  Jan 31 2010; 01-31-2010; 火狐不支持最后一种写法
+    var date4=new Date(2010,0,31,15,35,20,20);		//这种命名中，1月用0表示，12月用11表示
+    document.write(date4+"<br/>");
+    alert("第三天是"+date3);
+
+    // 获取Date的值
+    // getDate() 方法 当前日期是月份中第几天；
+    // getDay() 方法  当前日期是星期几，0为星期日，1为星期一
+    // getMonth() 方法 返回当前月份，0为一月，
+    // getFullYear() 方法	返回一个4位数的整数
+    // toDateString() 方法	基于当前时区，返回一个人们可理解的日期字符串，如"Wed 31 Dec 2003"
+    myDateObject=new Date(2014,3,1,16,04,20,20);
+    theMonth=myDateObject.getMonth();
+    document.write(theMonth);
+
+    // 设置Date的值
+    // setDate()	设置月中的某一天，接收一个参数，值为1－31；
+    // setMonth()	设置年中的某一月，参数为0-11,
+    // setFullYear()	4位数的年份，接收一个4位数的年
+    myDateObject.setFullYear(2009);
+    myDateObject.setDate(27);
+    myDateObject.setMonth(3);
+
+    // 日期计算
+    document.write("<h3>日期计算</h3>");
+    var myDate=new Date("1 Jan 2010");
+    myDate.setDate(32);			// 给myDate定义为第32天，但是1月只有31天，就会自动跳转成2月1号 
+    document.write(myDate+"<br/>");
+    var myDate2=new Date("2 Oct 2014");		
+    myDate2.setMonth(12);		// 同样的方法适用于setMonth，
+    document.write(myDate2+"<br/>");
+    //计算从现在开始28天后的日期
+    var nowDate=new Date();
+    var currentDay=nowDate.getDate();
+    document.write("第28天后是"+nowDate.setDate(currentDay+28)+"<br/>");
+
+    // 获取时间的值
+    // getHours()		小时
+    // getMinutes()		分钟	
+    // getSeconds()		秒
+    // getMilliseconds()	毫秒
+    // toTimeString()	整个时间部分		时间以24小时标准
+
+    var greeting;
+    var nowDate=new Date();
+    var nowHours=nowDate.getHours();
+    var nowMinutes=nowDate.getMinutes();
+    var nowSeconds=nowDate.getSeconds();
+    if (nowMinutes<10) {
+    	nowMinutes="0"+nowMinutes;
+    }
+    if (nowSeconds<10) {
+    	nowSeconds="0"+nowSeconds;
+    }
+    if (nowHours<12) {
+    	nowHours="0"+nowHours;
+    	greeting="Good Morning";
+    }
+    else if (nowHours<17) {
+    	greeting="Good Afternoon";
+    }
+    else {
+    	greeting="Good Evening";
+    }
+    document.write(greeting+" Welcome to my website \t");
+    document.write("Now is "+nowHours+":"+nowMinutes+":"+nowSeconds);
+    </script>
+</body>
+</html>

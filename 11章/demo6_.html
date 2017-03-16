@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	html{font-family: 微软雅黑;}
+	.wrap{padding: 0 15px;}
+	h1{text-align: center;}
+	.content{}
+	.content [class^="col-"]{padding-top:10px;padding-bottom:10px;background: #eee;border: 1px solid #ddd;border-radius: 3px;}
+	.content h2{font-family: 微软雅黑;font-size: 18px;text-align: center;}
+	.content .row{margin-bottom: 15px;}
+	p.lead{font-family: fantasy;font-size: 21px;margin-top: 15px;margin-bottom: 0;}
+	</style>
+	<script type="text/javascript">
+	var lastUpdated=new Date("Tue, 28 Dec 2020");
+    function getCookieValue(cookieName){
+    	var cookieValue=document.cookie;
+    	var cookieStartAt=cookieValue.indexOf(" "+cookieName+"=");
+    	if (cookieStartAt==-1) {
+    		cookieStartAt=cookieValue.indexOf(cookieName+"=");
+    	}
+    	if (cookieStartAt==-1) {
+    		cookieValue=null;
+    	}
+    	else{
+    		cookieStartAt=cookieValue.indexOf("=",cookieStartAt)+1;
+    		var cookieEndAt=cookieValue.indexOf(";",cookieStartAt);
+    		if (cookieStartAt==-1) {
+    			cookieEndAt=cookieValue.length;
+    		}
+    		cookieValue=unescape(cookieValue.substring(cookieStartAt,cookieEndAt) );
+    	}
+    	return cookieValue;
+    }
+    function setCookie(cookieName,cookieValue,cookiePath,cookieExpires){
+    	cookieValue=escape(cookieValue);
+    	if (cookiePath=="") {
+    		cookiePath=";path="+cookiePath;
+    	}
+    	if (cookieExpires=="") {
+    		var nowDate=new Date();
+    		nowDate.setMonth( nowDate.getMonth()+6 );		// 将时间变量变为现在时间后六个月
+    		cookieExpires=nowDate.toGMTString();	// 将过期时间转换为GMT时间格式
+    	}
+    	document.cookie=cookieName+"="+cookieValue+";expires="+cookieExpires+cookiePath;
+
+    }
+    </script>
+</head>
+<body>
+    <p>
+    	<!-- getCookieValue()方法适用于所有支持cookie的浏览器 -->
+    </p>
+    <p>
+    	欢迎来到我的网站
+    	<script type="text/javascript">
+    		var lastVisit=getCookieValue("LastVisit");
+    		if (lastVisit != null) {
+    			lastVisit=new Date(lastVisit);
+    			if (lastVisit<lastUpdated) {
+    				document.write("<a href=\"what.html\"> ");
+    				document.write("<img src=\"be1.jpg\" border=0></a> ");
+    			}
+    		}
+    		var nowDate=new Date();
+    		setCookie("LastVisit",nowDate.toGMTString(),"","");
+    	</script>
+    </p>
+    
+</body>
+</html>

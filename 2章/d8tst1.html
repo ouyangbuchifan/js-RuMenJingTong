@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>在线小测试 程序</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <!-- 利用数组来做一个在线小测试的单选题的例子。
+    分析：单选题具有4个选项，可以用数组来做。二维数组可以用来存问题和选项，一维数组可以用来存答案。	 -->
+
+    <!--oy start-->
+    <script type="text/javascript">
+    var qu=new Array();
+    var answer=new Array();
+    var an2;
+
+    //定义题目
+    qu[0]=new Array();
+    qu[0][0]="甲壳虫乐队指的是什么？";
+    qu[0][1]="A. 60年代利物浦的一个摇滚组合";
+    qu[0][2]="B. 4只具有音乐天赋的虫子";
+    qu[0][3]="C. 一种德国的小汽车";
+    qu[0][4]="D. 我不知道，你能问我关于棒球的问题吗";
+    //定义答案
+    answer[0]="A";
+
+    // 输出问题
+    document.write(qu[0][0]+"<br/>");
+    document.write(qu[0][1]+"<br/>");
+    document.write(qu[0][2]+"<br/>");
+    document.write(qu[0][3]+"<br/>");
+    document.write(qu[0][4]+"<br/>");
+
+    an2=prompt("请输入你的答案,请注意大小写","")
+    if (an2==answer[0]) 
+    	{
+    		document.write("回答正确");
+    	}
+    else
+    	{
+    		document.write("你的回答是错的！");
+    	}
+    document.write("<br/>");	//第1题结束
+
+    
+    // 第二题
+    qu[1]=new Array();
+    qu[1][0]="Homer Simpon's favorite food is";
+    qu[1][1]="A. Fresh salad";
+    qu[1][2]="B. Doughnuts";
+    qu[1][3]="C. Bread and Water";
+    qu[1][4]="D. Apples";
+
+    answer[1]="B";
+
+    document.write(qu[1][0]+"<br/>");
+    document.write(qu[1][1]+"<br/>");
+    document.write(qu[1][2]+"<br/>");
+    document.write(qu[1][3]+"<br/>");
+    document.write(qu[1][4]+"<br/>");
+
+    an2=prompt("请输入第二题的答案","");
+    if (an2==answer[1]) 
+    	{
+    		document.write("回答正确");
+    	}
+    else
+	    {
+	    	document.write("回答错误");
+	    }
+
+	alert("数组已经初始化！");
+
+
+
+    </script> 
+</body>
+</html>
