@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据属性－面向对象的程序设计</title>
+	</head>
+	<body>
+		<p>此方法只能IE8以上浏览器支持</p>
+		<script type="text/javascript">
+			//use strict;
+			var person = {}
+			
+			/*
+			 * 将对象的configurable改为false,就不能再修改为true了，修改会报错
+			 * 如果configurable为true,删除会起作用
+			 * */
+			Object.defineProperty(person, 'name', {		
+				configurable: false,
+				value: '欧阳'
+			});
+			
+			Object.defineProperty(person, 'name', {
+				configurable: true,
+				value: '张三'
+			});
+		</script>
+	</body>
+</html>

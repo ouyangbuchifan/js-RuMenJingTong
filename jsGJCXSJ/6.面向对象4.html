@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>访问器属性－面向对象的程序设计</title>
+	</head>
+	<body>
+		<p>此方法只能IE8以上浏览器支持</p>
+		<script type="text/javascript">
+			/*
+			 * 对象的数据属性
+			 * configurable 可否删除属性,默认true
+			 * enumerable 可否用for-in遍历返回属性,默认true
+			 * get 读取属性时调用的函数，默认undefined
+			 * set 写入属性时调用的函数，默认undefined
+			 * */
+			
+			//use strict;
+			var book = {
+				_year: 2004,
+				edition: 1
+			}
+			
+			/*
+			 * _year前面加_，表示只能通过对象方法访问的属性
+			 * 如果configurable为true,删除会起作用
+			 * */
+			Object.defineProperty(book, 'year', {
+				get: function(){
+					return this._year;
+				},
+				set: function(newValue){
+					if (newValue > 2004) {
+						this._year = newValue;
+						this.edition += newValue - 2004
+					}
+				}
+			});
+			
+			book.year = 2005;
+			console.log(book.edition);
+		</script>
+	</body>
+</html>

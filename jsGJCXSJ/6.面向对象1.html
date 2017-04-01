@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据属性－面向对象的程序设计</title>
+	</head>
+	<body>
+		<p>此方法只能IE8以上浏览器支持</p>
+		<script type="text/javascript">
+			/*
+			 * 对象的数据属性
+			 * configurable 可否删除属性,默认true
+			 * enumerable 可否用for-in遍历返回属性,默认true
+			 * writable 可否修改属性值,默认true
+			 * value 用于存储对象属性的值
+			 * */
+			
+			use strict;
+			var person = {}
+			
+			// 将对象的writable改为false,非严格模式下，修改值无效。严格模式下，会报错 
+			Object.defineProperty(person, 'name', {		
+				writable: false,
+				value: '欧阳'
+			});
+			
+			console.log(person.name);
+			
+			person.name = '张三';			// writable为false，赋值无效
+			console.log(person.name);
+		</script>
+	</body>
+</html>
