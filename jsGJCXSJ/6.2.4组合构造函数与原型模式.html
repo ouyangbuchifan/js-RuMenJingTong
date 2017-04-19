@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	    <meta content="telephone=no" name="format-detection" />
+		<title>组合构造函数模式与原型模式</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+    <script type="text/javascript">
+    	/**
+    	 * 组合构造函数与原型模式
+    	 * 构造函数用于定义实例属性，原型模式用于定义方法和共享的属性。
+    	 * 这样，每个实例都有自己实例属性的副本，又共享着方法的引用，最大限度节省内存
+    	 * 目前ECMAScript中使用最广泛、认同度最高的创建自定义类型方法
+    	 * */
+    	function Person(name, age, job){
+    		this.name = name;
+    		this.age = age;
+    		this.job = job;
+    		this.friends = ['李西涯', '谢迁'];
+    	}
+    	Person.prototype = {
+    		constructor: Person,
+    		sayName: function(){
+    			console.log(this.name);
+    		}
+    	}
+    	
+    	var person1 = new Person('刘健', 29, '内阁大学士');
+    	var person2 = new Person('刘瑾', 40, '司礼监掌印太监');
+    	
+    	person1.friends.push('杨廷和');
+    	person2.friends.push('谷大用', '张永');
+    	
+    	console.log(person1.friends);
+    	console.log(person2.friends);
+    	console.log(person1.friends == person2.friends);
+    	console.log(person1.sayName == person2.sayName);
+    	
+    	console.log(person1);
+    </script>
+</body>
+</html>

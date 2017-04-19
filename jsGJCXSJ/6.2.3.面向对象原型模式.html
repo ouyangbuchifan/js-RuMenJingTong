@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	    <meta content="telephone=no" name="format-detection" />
+		<title>原理模式</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+    <script type="text/javascript">
+    	function Person(){
+    		
+    	}
+    	
+    	Person.prototype.name = '张三';
+    	Person.prototype.age = 29;
+    	Person.job = '服务员';
+    	Person.prototype.sayName = function(){
+    		console.log(this.name);
+    	}
+    	
+    	var p1 = new Person();
+    	p1.sayName();	// 张三
+    	
+    	var p2 = new Person();
+    	p2.sayName();	// 张三
+    	console.log(p1);
+    	
+    	// 不同于构造函数，这里两个函数相等
+    	console.log(p1.sayName == p2.sayName);	// true
+    	
+    	// 如果当前对象有name就输出，没有就向上级找，输出原型里的name
+    	p1.name = '高珙';
+    	console.log(p1.name);
+    	console.log(p2.name);
+    	
+    	// 使用delete操作符可以删除本身的属性，让其继续寻找原型属性
+    	delete p1.name;
+    	console.log(p1.name);
+    	
+    	
+    	console.log('..................');
+    	/**
+    	 * 2. 原型与in操作符
+    	 * 通过对象能访问给定属性时返回true，无论是本对象中，还是原型中
+    	 * */
+    	console.log(p1.hasOwnProperty(name));	// false
+    	console.log('name' in p1);				// true
+    	
+    	/**
+    	 * 原型的缺点
+    	 * 
+    	 * */
+    	function Student(){
+    		
+    	}
+    	Student.prototype = {
+    		constructor: Student,
+    		name: '梁文道',
+    		age: 29,
+    		job: '粤菜特一级厨师',
+    		friends: ['奥雷里亚诺', '布恩迪亚'],
+    		sayName: function(){
+    			console.log(this.name);
+    		}
+    	}
+    	var student1 = new Student();
+    	var student2 = new Student();
+    	student1.friends.push('李西涯');
+    	
+    	// 两个打印都带有'李西涯'
+    	console.log(student1.friends);
+    	console.log(student2.friends);
+    </script>
+</body>
+</html>

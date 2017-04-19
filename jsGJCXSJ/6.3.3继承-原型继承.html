@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	    <meta content="telephone=no" name="format-detection" />
+		<title>原型继承</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+	<script type="text/javascript">
+		/**
+		 * 原型继承 Object.create(obj1, obj2) obj1可选
+		 * obj1:用作新对象原型。  obj2为新对象定义额外属性
+		 * ps:原型对象里的值始终会共享
+		 * */
+		var person = {
+			name: '李东阳',
+			friends: ['谢迁','杨廷和','刘健'],
+		}
+		
+		var anotherPerson = Object.create(person);
+		anotherPerson.name = '刘大夏';
+		anotherPerson.friends.push('杨慎');
+		console.log(anotherPerson.name);
+		
+		var yetAnotherPerson = Object.create(person);
+		yetAnotherPerson.name = '刘瑾';
+		yetAnotherPerson.friends = ['谷大用','马永成','高凤'];
+		console.log(yetAnotherPerson.friends);
+	</script>    
+</body>
+</html>

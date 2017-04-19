@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	    <meta content="telephone=no" name="format-detection" />
+		<title>工厂模式及构造函数模式</title>
+	</head>
+<body>
+    <script type="text/javascript">
+    	// 1. 工厂模式
+    	// js无法创建类，开发人员发明了一种函数，用函数来封装以特定接口创建对象的细节。
+    	// 工厂模式缺点：虽然解决了创建多个相似对象的问题，但无法解决对象识别(怎样知道一个对象的类型)，于是产生了构造函数模式
+    	function createPerson(name, age, job){
+    		var o = new Object();
+    		o.name = name;
+    		o.age = age;
+    		o.job = job;
+    		o.sayName = function(){
+    			return this.name;
+    		};
+    		return o;
+    	}
+    	
+    	var person1 = createPerson('张三', 29, '软件工程师');
+    	var person2 = createPerson('李四', 35, '医生');
+    	console.log(person2.sayName());
+    	console.log(typeof(person2));
+    	
+    	/**
+    	 * 2. 构造函数模式
+    	 * a. 不显示地创建对象
+    	 * b. 直接将属性和方法赋给this对象
+    	 * c. 没有return语句
+    	 * */
+    	function Person(name, age, job){
+    		this.name = name;
+    		this.age = age;
+    		this.job = job;
+    		this.sayName = function(){
+    			console.log(this.name);
+    		}
+    	}
+    	
+    	var p1 = new Person('郑乾', 29, 'SoftWare Engineer');
+    	var p2 = new Person('李东阳', 27, 'Writer');
+    	p2.sayName();
+    	console.log(typeof(p2));
+    	
+    	// 缺点：构造函数内部的函数是不同的，p1.sayName != p2.sayName这样每执行一次构造函数就创建一个function，不好。
+    	function Student(name, sex, age){
+    		this.name = name;
+    		this.sex = sex;
+    		this.age = age;
+    		this.sayName = sayName;
+    	}
+    	function sayName(){
+    		console.log(this.name);
+    	}
+    	
+    	// 这样可以解决构造函数重复创建函数的问题，但新问题在于：外部全局函数过多。这样完全没有自定义引用类型的意义了
+    </script>
+</body>
+</html>
