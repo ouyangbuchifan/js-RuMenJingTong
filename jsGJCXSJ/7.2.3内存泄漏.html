@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo"></div>
+		
+		<script type="text/javascript">
+			/**
+			 * 该函数执行完后,element的引用数至少是1，且无法销毁
+			 * */
+			function myFun(){
+				var ele = document.querySelector('#demo');
+				ele.onclick = function(){
+					console.log(ele.id);
+				}
+			}
+			
+			/**
+			 * 改进
+			 * 定义变量作为ele.id的引用，闭包执行完销毁，回收内存。
+			 * */
+			function myFun2(){
+				var ele = document.querySelector('#demo');
+				var id = ele.id;
+				ele.onclick = function(){
+					console.log(id);
+				}
+				
+				ele = null;
+			}
+		</script>
+	</body>
+</html>

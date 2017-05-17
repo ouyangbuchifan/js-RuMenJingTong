@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			/**
+			 * 全局函数中，this指向window,函数作为某个对象的方法调用时，指向该对象。
+			 * 但是在闭包中，this指向window
+			 * */
+			
+			// 例子问题：本来应该执行函数，但是浏览器测试为返回函数
+			var name = 'the window';
+			var object ={
+				name: 'my object',
+				getNameFunc: function(){
+					return function(){
+						return this.name;
+					};
+				}
+			}
+			console.log(object.getNameFunc());	// the window
+			
+			var yourName = 'the window';
+			var object2 = {
+				name: 'my Object',
+				getName = function(){
+					return this.name;
+				}
+			}
+			object.getName();		// my Object
+			(object.getName());		// my Object
+			(object.getName = object.getName)();	// the window  非严格模式下
+			// 例三执行赋值语句，再调用赋值后的结果。赋值表达式的值是函数本身，所以this指向window
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模块模式</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			// 模块模式，为单例创建私有变量和特权方法
+			
+			/**
+			 * 返回的对象中只包含可以公开的属性和方法，返回的对象即函数的公共接口
+			 * */
+			var singleton = function(){
+				// 私有变量和私有函数
+				var privateVariable = 10;
+				function privateFunction(){
+					return false;
+				}
+				
+				// 特权|公用方法和属性
+				return {
+					publicProperty: true,
+					publicMethod: function(){
+						privateVariable++;
+						return privateFunction();
+					}
+				}
+			}();
+			
+			/**
+			 * 返回对象的方法，是有权访问数组的特权方法。前者统计长度，后者添加新组件
+			 * */
+			var application = function(){
+				// 私有变量和函数
+				var components = new Array();
+				// 初始化
+				components.push(new BaseComponent());
+				
+				// 公共
+				return {
+					getComponentCount: function(){
+						return components.length;
+					},
+					registerComponent: function(){
+						if (typeof component == "object") {
+							components.push(component);
+						}
+					}
+				}
+			}();
+		</script>
+	</body>
+</html>

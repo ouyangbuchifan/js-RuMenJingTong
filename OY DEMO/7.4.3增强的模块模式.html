@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>增强的模块模式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 返回对象之前加入对其增加的代码
+			 * 适用于单例必须是某种类型，同时必须添加某些属性和方法对其增强的情况。
+			 */
+			var singleton = function(){
+				// 私有变量||函数
+				var privateVariable = 10;
+				function privateFunction(){
+					return false;
+				}
+				
+				// 创建对象
+				var object = new CustomType();
+				object.publicProperty = true;
+				object.publicMethod = function(){
+					privateVariable++;
+					return privateFunction();
+				}
+				
+				// 返回对象
+				return object;
+			}();
+			
+			var application = function(){
+				// 私有变量
+				var components = new Array();
+				
+				// 初始化
+				components.push(new BaseComponent());
+				// 创建application的一个局部副本
+				var app = new BaseComponent();
+				
+				// 公共接口
+				app.getComponentCount = function(){
+					return components.length;
+				}
+				app.registerComponent = function(){
+					if (typeof component == 'object') {
+						components.push(component);
+					}
+				}
+				
+				// 返回副本
+				return app;
+			}();
+		</script>
+	</body>
+</html>

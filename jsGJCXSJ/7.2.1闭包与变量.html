@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>闭包与变量</title>
+	</head>
+	<body>
+		<div id="demo"></div>
+		
+		<script type="text/javascript">
+			// 闭包：在函数内部再创建一个函数
+			// 在可以不用的时候尽量不用，闭包造成内存占用，不销毁时一直占用。
+			
+			//
+			function createFunctions(){
+				var result = new Array();
+				for (var i=0;i<10;i++) {
+					result[i]=function(){
+						return i;
+					}
+				}
+				return result;
+			}
+			
+//			console.log(createFunctions());
+			var demo = document.querySelector("#demo");
+//			demo.innerHTML = createFunctions() + '<br/>';
+			
+			
+			function createFunctions2(){
+				var result = new Array();
+				for (var i=0;i<10;i++) {
+					result[i]=function(num){
+						return function(){
+							return num;
+						}
+					}(i);
+				}
+				
+				return result;
+			}
+			console.log(createFunctions2());
+			demo.innerHTML = createFunctions2();
+		</script>
+	</body>
+</html>

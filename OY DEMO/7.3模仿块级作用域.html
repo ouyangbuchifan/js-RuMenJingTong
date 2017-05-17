@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * JS没有块级作用域概念，在块语句中定义的变量，实际上包含在函数中而非语句中
+			 * */
+			function outputNumbers(count){
+				// 块级作用域
+				for (var i = 0; i < count; i++) {
+					console.log(i)
+				}
+				console.log(i);				// i可以在函数内执行，函数外就会出错
+			}
+			// console.log(i);					// 报错
+			outputNumbers(5);	
+			
+			
+			function myFun(){
+				(function(){
+					// 私有作用域，这里的变量在外部无法访问
+					for (var i = 0; i < count; i++) {
+						console.log(i)
+					}
+				})();
+				// console.log(i);				// 报错
+			}
+			
+			// 如果项目由很多开发人员共同参与，过多的全局变量容易命名冲突，通过私有作用域，每个开发都可以有自己的变量，又不怕全局冲突。
+			// 立即执行函数外，变量就会失效。这样可以减少闭包占用的内存。
+			(function(){
+				var now = new Date();
+				if (now.getMonth() == 0 && now.getDate() == 1) {
+					console.log('元旦快乐');
+				}
+			})();
+			// 上面函数在元旦时执行。now变量只在函数内可用，不会造成全局污染。
+		</script>
+	</body>
+</html>

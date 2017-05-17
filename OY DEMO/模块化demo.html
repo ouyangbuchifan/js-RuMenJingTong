@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化demo</title>
+    <style>
+    *{margin: 0;padding: 0}
+    .modal_bg{display:none;position: fixed;top: 0;right: 0;bottom: 0;left: 0;background: rgba(0,0,0,.35);z-index: 50;}
+    .modal{display:none;position: fixed;top: 100px;left: 50%;margin-left: -150px;z-index:55;background:#fff;width: 300px;height: 150px;}
+    </style>
+</head>
+<body>
+    <div class="modal_bg"></div>
+    <div class="modal">
+        <i class="close">关闭</i>
+        <p class="summary"></p>
+    </div>
+
+    <button id="btn">触发</button>
+
+    <script>
+        // 模块化demo
+        var wapModal = function(){
+            var app = {},
+                modal_bg = document.querySelector('.modal_bg'),
+                modal = document.querySelector('.modal'),
+                close = document.querySelector('.close');
+            app.modalShow = function(txt){
+                modal.querySelector('.summary').innerHTML = txt;
+                modal_bg.style.display = 'block';
+                modal.style.display = 'block';
+            };
+            app.modalClose = function(){
+                modal_bg.style.display = 'none';
+                modal.style.display = 'none';
+            };
+            
+            // function......
+            
+            // 默认的关闭
+            close.onclick = function(){
+                app.modalClose();
+            }
+
+            // 返回
+            return app;
+        }();
+
+        // 绑定dom
+        var btn = document.querySelector('#btn');
+        btn.onclick = function(){
+            wapModal.modalShow('成功触发');
+        }
+
+    </script>
+</body>
+</html>

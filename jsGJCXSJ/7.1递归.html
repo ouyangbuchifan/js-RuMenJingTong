@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>递归</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 递归函数
+			function factorial(num){
+				if(num<=1){
+					return 1;
+				}else{
+					return num*factorial(num-1)
+				}
+			}
+			
+			
+			// 修改之后factorial已经不是函数，会报错
+			var anotherFactorial = factorial;
+			factorial = null;
+			console.log(anotherFactorial(4));
+			// arguments.callee 指向正在执行的函数的指针，可以用来实现对函数的递归调用。使用更安全
+			function factorial(num){
+				if (num <= 1) {
+					return 1;
+				}else{
+					return num*arguments.callee(num-1)
+				}
+			}
+			
+			
+			// 严格模式下arguments.callee不可用
+			// 创建名为f()的命名函数表达式，赋值给变量。即使把函数赋值给另一个变量，函数的名字f仍然有效。
+			var factorial = (function f(num){
+				if(num<=1){
+					return 1;
+				}else{
+					return num*f(num-1)
+				}
+			})
+			
+		</script>
+	</body>
+</html>
