@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>间歇调用和超时调用</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			// setTimeout()
+			var timeoutid = setTimeout(function(){
+				console.log(123);
+			}, 1000);
+			
+			// 执行前可销毁
+			clearTimeout(timeoutid);
+			
+			// setInterval() 用法不介绍
+			
+			/**
+			 * 可以用setTimeout()模拟setInterval()
+			 * setInterval的缺点：后一个调用可能在前一个没结束前启动
+			 * */
+			var num = 0,
+				max = 10;
+			function invrementNumber(){
+				num++;
+				console.log(num);
+				if (num<max) {
+					setTimeout(invrementNumber, 500);
+				}else{
+					console.log('done')
+				}
+			}
+			
+			setTimeout(invrementNumber, 500)
+			
+		</script>
+	</body>
+</html>

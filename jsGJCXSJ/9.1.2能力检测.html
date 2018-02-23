@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>能力检测，不是浏览器检测</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			// 错误，不够具体(safari也有这样的属性)
+			var isFirefox = !!(navigator.vendor&&navigator.vendorSub);
+			
+			// 错误，过于具体(这个假设在IE以后版本还存在document.all，但其实不能保证)
+			var isIE = !!(document.all && document.uniqueID)
+			
+			// 如果要做能力检测，最好一次性检测所有特性
+			var hasNSPlugins = !!(navigator.plugins && navigator.plugins.length);
+			var hasDOM = !!(document.getElementById && document.createElement && document.getElementByTagName);
+		</script>
+	</body>
+</html>

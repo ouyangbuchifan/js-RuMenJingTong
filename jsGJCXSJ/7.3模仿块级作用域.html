@@ -39,6 +39,20 @@
 				}
 			})();
 			// 上面函数在元旦时执行。now变量只在函数内可用，不会造成全局污染。
+			
+			/**
+			 * 
+			 * */
+			(function(){
+		        Array.prototype.getLen = function(){
+		            console.log(this.length)
+		        };
+		        var myarr = [1,2,3,4,5,6];
+		        myarr.getLen();     // 6
+		    })();
+		
+		    var youarr = [1,2,3,4];
+		    youarr.getLen();        // 4
 		</script>
 	</body>
 </html>

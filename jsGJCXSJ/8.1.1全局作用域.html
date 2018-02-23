@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	    <meta content="telephone=no" name="format-detection" />
+		<title>全局作用域</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+    <script type="text/javascript">
+    	// window对象同时也是Global对象，所以，js里所有的全局变量和函数都是window对象的属性和函数，
+    	var age = 29;
+    	function sayAge(){
+    		console.log(this.age);	// this指向window
+    	}
+    	
+    	// 输出一样的
+    	console.log(age);
+    	sayAge();
+    	window.sayAge();
+    	
+    	// 定义全局变量和直接在window上定义属性，还是有一点差别的：前者不可以用delete删除，后者可以。 
+    	window.color = 'red';
+    	delete window.color;		// 在IE9以下报错
+    	console.log(window.color);
+    	
+    	// 抛错，oldValue未定义
+    	var newValue = oldValue;
+    	
+    	// 不会报错，这是一次属性查询
+    	var myValue = window.myValue;	// undefined
+    	
+    </script>
+</body>
+</html>

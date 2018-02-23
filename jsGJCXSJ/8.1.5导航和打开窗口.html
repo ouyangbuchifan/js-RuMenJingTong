@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>导航和打开窗口</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			// 大部分浏览器会屏蔽打开窗口，可以先判断下
+//			var wroxWin = window.open('http://www.baidu.com', 'wroxWindow', 'width=400,height=400,left=10,top=10');
+//			if (wroxWin == null) {
+//				alert('打开窗口被屏蔽')
+//			}
+			
+			// 此代码检测window.open()是否被浏览器屏蔽
+			var blocked = false;
+			try{
+				var wrox = window.open('http://www.baidu.com', '_blank');
+				if (wrox == null) {
+					blocked = true;
+				}
+			}catch(e){
+				blocked = true;
+			}
+			if (blocked) {
+				alert('打开窗口被屏蔽了')
+			}
+		</script>
+	</body>
+</html>

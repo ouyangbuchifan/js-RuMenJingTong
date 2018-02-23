@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+</head>
+<body >
+
+
+    <div id="mydom"></div>
+    <div id="mydom2"></div>
+
+    <script>
+        var mydom = document.getElementById('mydom');
+        var e2 = document.createElement('select');
+        e2.options[0] = new Option('加载项1','');
+        e2.options[1] = new Option('加载项2','');
+        e2.size = '1';
+        var object = mydom.appendChild(e2);
+        mydom.style.margin = '20px 0 0 0';
+
+
+        var mydom2 = document.getElementById('mydom2');
+        var cont = document.createElement('input');
+        cont.type='button';
+        cont.value='提交';
+        mydom2.appendChild(cont);
+        mydom2.style.marginTop='20px';
+    </script>
+</body>
+</html>

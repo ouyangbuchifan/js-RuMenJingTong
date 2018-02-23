@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>querySelector选择器</title>
+
+</head>
+<body>
+    <div class="panel-head">这里是我的内容</div>
+    
+    <p class="summary red">这是一个段落</p>
+    <p class="summary red">这是一个段落</p>
+    <p class="summary red">这是一个段落</p>
+
+    <p class="not" name="user"></p>
+    <script>
+        /**
+        * querySelector的参数，为css选择器规则。返回的是符合规则的第一个元素
+        * 指定一个或多个匹配元素的 CSS 选择器。 可以使用它们的 id, 类, 类型, 属性, 属性值等来选取元素。
+        * 对于多个选择器，使用逗号隔开，返回一个匹配的元素。
+        */
+        var panelHead = document.querySelector('.panel-head');
+        panelHead.style.lineHeight = 1.5;
+        panelHead.style.color = '#666';
+
+        /**
+        * querySelectorAll 与前者类似，返回所有符合规则的所有元素
+        */
+        var summaryAll = document.querySelectorAll('.summary');
+
+        // 找到所有带有hot样式，并且带有user的p标签
+        var getP = document.querySelectorAll('p.hot[name]');
+    </script>
+</body>
+</html>

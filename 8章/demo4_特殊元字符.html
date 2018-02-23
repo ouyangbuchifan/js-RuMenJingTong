@@ -20,7 +20,7 @@
 			function regExpIs_valid(text){
 				var myRegExp=/[^a-z\d ]/i;		// 定义一个正则，不是字母，不是数字，忽略大小写,忽略空格（注意中括号里有一个空格）。后面加了i,已经不区分大小写字母
 				// var myRegExp=/[^a-zA-Z\d _]/;	//同上一行意义是一样的。 加上对_的判断
-				return !( myRegExp.test(text) );	// RegExp对象的test()方法返回传入的参数字符串是否存在与RegExp对象中定义的正则相匹配的子串。有则方法返回true,无false
+				return myRegExp.test(text) ;	// RegExp对象的test()方法返回传入的参数字符串是否存在与RegExp对象中定义的正则相匹配的子串。有则方法返回true,无false
 
 			}
 			function btnCheckValid_onclick(){

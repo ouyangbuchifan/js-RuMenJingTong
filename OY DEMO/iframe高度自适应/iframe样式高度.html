@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{height:500px;}
+	/*iframe{height:400px;}*/
+	iframe{height:100%;}
+	</style>
+</head>
+<body>
+	<p>
+		iframe自身的height属性，优先级比css样式要低。如果样式里设置了height 100%，iframe的父级必须有具体的高度，属性里的height同。
+	</p>
+	<iframe src="http://www.baidu.com" height="100%" frameborder="0"></iframe>
+</body>
+</html>

@@ -34,6 +34,14 @@
                 modal_bg.style.display = 'none';
                 modal.style.display = 'none';
             };
+
+            // 模块内部私有函数，外部无法访问
+            var myfun = function(){
+                console.log('内部方法，外部无法访问');
+            }
+
+            // 模块内部私有变量，外部无法访问
+            var mytxt = 123;
             
             // function......
             
@@ -42,9 +50,15 @@
                 app.modalClose();
             }
 
+            
             // 返回
             return app;
+
         }();
+
+        // console.log(wapModal.mytxt);     // 报错
+
+        // wapModal.myfun();    // 报错
 
         // 绑定dom
         var btn = document.querySelector('#btn');

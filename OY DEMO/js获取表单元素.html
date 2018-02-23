@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.m_10{margin: 10px auto;}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" name="userName" value="">
+			<input type="hidden" name="sort" value="123">
+			<fieldset class="m_10">
+				<input type="radio" name="color" id="c1" value="红">红
+				<input type="radio" name="color" id="c2" value="兰">兰
+				<input type="radio" name="color" id="c3" value="黑" checked>黑
+				<input type="radio" name="color" id="c4" value="绿">绿
+			</fieldset>
+			<button type="button" id="btn">提交</button>
+		</form>
+		
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				var userName = document.getElementsByName('userName')[0];
+				var sort = document.querySelector('input[name="sort"]');	// 该选择器IE9及以上
+
+				// 更改隐藏域的值
+				sort.value = '更改后的值';
+				console.log(userName.value, sort.value);
+			}
+
+			// 为方便改值，变量尽量去获取DOM，而不是value。
+			// 如果变量为value，将变成赋值类型，改值不成功。以下是错的
+			
+			// var sort = document.querySelector('input[name="sort"]').value;
+			// sort = 77;
+			// console.log(sort);	// 77
+			// console.log(document.querySelector('input[name="sort"]').value) // 123（原值）
+
+			// 获取radio选中值
+			function getRadiosChk(){
+				var thisRadio = document.getElementsByName('color');
+				for (var i = 0, len = thisRadio.length; i < len; i++) {
+					if (thisRadio[i].checked) {
+						return thisRadio[i].value;
+					};
+				};
+			}
+			console.log(getRadiosChk());
+		</script>
+	</body>
+</html>

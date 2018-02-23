@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <style>
+        table{border-collapse: collapse;}
+        table tr td{border: 1px solid #eee;padding: 3px 5px;}
+    </style>
+</head>
+<body style="height:300px">
+    
+    
+    <script>
+    function myfun(){
+        var childHeight = document.body.scrollHeight;
+        console.log(childHeight);
+        var father = parent.document.getElementById('fatherFrame');
+        father.height = childHeight + 20;
+    }
+    window.onload = myfun();
+    </script>
+</body>
+</html>

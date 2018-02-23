@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>window.frames[0]</p>
+		<p>window.frames['topFrame']</p>
+		<p>top.frames[0]</p>
+		<p>top.frames['topFrame']</p>
+		<p>frames[0]</p>
+		<p>frames['topFrame']</p>
+		
+		<p id="demo1">上面的内容</p>
+		
+		<script>
+			setTimeout(function(){
+				document.getElementById('demo1').innerHTML = 123;
+			}, 1500)
+		</script>
+	</body>
+</html>
