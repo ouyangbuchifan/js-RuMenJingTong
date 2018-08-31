@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>禁止浏览器右键</title>
+</head>
+<body>
+	<script>
+	// 禁止弹出右键菜单
+	document.oncontextmenu = function(){
+		return false
+	}
+
+	// 禁止复制
+	document.onkeydown = function(){
+		if (event.ctrlKey && window.event.keyCode = 67) {	// 67为c键
+			return false;
+		};
+	}
+	// keyCode码: https://www.cnblogs.com/hubgit/p/6073125.html
+
+	// 禁止粘贴
+	document.body.oncopy = function(){
+		return false;
+	}
+
+	// 禁止选中文本
+	document.onselectstart = function(){
+		return false;
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+ES6对module的写法，浏览器暂不支持(chrome、firefox也不支持)，需要用babel编译下
+babel:http://www.ruanyifeng.com/blog/2016/01/babel.html

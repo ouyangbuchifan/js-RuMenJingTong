@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script>
+    /***
+    * var,let,const
+    * let局部变量
+    * const常量
+    */
+    let name = 123;
+    for (let i = 0; i <3; i++) {
+        name = i
+    };
+    console.log(name);
+
+
+    /***
+    * class,extends,super
+    * 类，继承
+    */
+    class Animal{                           //定义类
+        constructor(){                      //私有方法与属性写在constructor里
+            this.type = "animal"
+        }
+        sayHi(){
+            console.log('hi');
+        }
+        sayType(){
+            console.log(this.type);
+        }
+    }
+    var fox = new Animal();
+    fox.sayType();
+    // 继承
+    class Cat extends Animal{
+        constructor(){
+            super()                         //如果继承了别的类，必须私有里执行。代指父类，this变换为父类
+            this.type = "Cat"
+        }
+    }
+    let mimi = new Cat()
+    console.log(mimi.type)
+
+
+    /***
+    * arrow funciton
+    * 箭头函数
+    */
+    function cont(i){return i + 1;}         //es5
+    (i) => i+123                            //es6
+    //setTimeout this指向错误示范
+    class WrongAnimal{
+        constructor(){
+            this.type = "animal"
+        }
+        sayHi(say){
+            setTimeout(function(){
+                console.log(this.type + ' hi');     //setTimeout会导致this指向全局对象
+            }, 20)
+        }
+    }
+    let maomao = new WrongAnimal();
+    maomao.sayHi()                          //undefined hi
+    //es6 箭头函数this总是指向定义时的对象
+    class ResetWAnimal{
+        constructor(){
+            this.type = "animal";
+        }
+        sayHi(say){
+            setTimeout((say)=>{
+                console.log(this.type + ' hi');
+            },20)
+        }
+    }
+    let maomao2 = new ResetWAnimal();
+    maomao2.sayHi()
+
+
+    /***
+    * template string 模板字符串
+    * 以反引号'作为开始与结束，所有空格与缩进会被保留。
+    * 以${}来引入变量
+    * 键盘上功能区1前面的按键
+    */
+
+    let txt = "添加的内容";
+    $("#content").append(` 
+        <ul class="list-group">
+            <li class="list-group-item">${txt}</li>
+        </ul>    
+    `);
+
+
+    /***
+    * destructuring 解构
+    * ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构
+    */
+    //es5
+    var durk = 'ken';
+    var lili = 'ang';
+    var zoo = {durk: durk, lili: lili}
+    console.log(zoo)
+    //es6
+    let cati = 'ken'
+    let dogi = 'wang'
+    let zoo = {cati, dogi}
+
+    /***
+    * default 默认值
+    */
+    function animation(type){
+        type = type||'cat'                  //es5
+    }
+    (type="cat")=>{console.log(type)}       //es6
+    </script>
+</body>
+</html>

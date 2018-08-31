@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Element类型</title>
+		<link href="../css/bootstrap.css" rel="stylesheet">
+	</head>
+<body>
+    <div class="container">
+    	<div class="page-header">
+    		<h1>Element类型</h1>
+    		<p>nodeType值为1；nodeName值为元素标签名；nodeValue值为null；parentNode可能是Document或Element</p>
+    	</div>
+    	<article class="panel panel-primary">
+    		<div id="myTit" class="panel-heading">nodeName tagName</div>
+    		<div class="panel-body">
+    			<p>访问元素标签名，可以用nodeName属性或tagName属性</p>
+    			<p>获取到html的元素名都是大写，xml里都是小写。如果想匹配，最好用toLowerCas()转换下</p>
+    		</div>
+    	</article>
+    	<article class="panel panel-primary">
+    		<div class="panel-heading">1. html元素</div>
+    		<div class="panel-body">
+    			<table class="table table-bordered">
+    				<thead>
+    					<tr>
+    						<th>属性名</th>
+    						<th>属性含义</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>id</td>
+    						<td>标签唯一标识符。修改后立即生效</td>
+    					</tr>
+    					<tr>
+    						<td>title</td>
+    						<td>标签的title属性。修改后立即生效</td>
+    					</tr>
+    					<tr>
+    						<td>lang</td>
+    						<td>语言代码，很少用。</td>
+    					</tr>
+    					<tr>
+    						<td>dir</td>
+    						<td>写作顺序。修改后立即生效</td>
+    					</tr>
+    					<tr>
+    						<td>className</td>
+    						<td>元素的class，修改后立即生效</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    			<div class="bd" id="myDiv" title="body text" lang="en" dir="rtl" data-tit="自定义标题">className对应class，但是class是关键字，所以属性命名为className</div>
+    			<p>属性值可以更改</p>
+    		</div>
+    	</article>
+    	<article class="panel panel-primary">
+    		<div class="panel-heading">2.取得特性</div>
+    		<div class="panel-body">
+    			<h3>getAttribute() setAttribute() removeAttribute()</h3>
+    			<p>可以作用于自定义属性</p>
+    			<h3>setAttribute() 如果属性不存在，则创建它</h3>
+    			<p class="alert alert-danger">区别：直接用属性更改的元素属性值，无法作用于自定义属性。setAttribute()方法可以.</p>
+    			<h3>removeAttribute()</h3>
+    			<p>会删除特性的值，连同特性一起删</p>
+    		</div>
+    	</article>
+        <article class="panel panel-primary" id="createWp">
+            <div class="panel-heading">3.创建元素createElement</div>
+            <div class="panel-body">
+                <p>用document.createElement()可以创建元素</p>
+            </div>
+        </article>
+    </div>
+
+	<script>
+	var myTit = document.getElementById('myTit');
+	console.log(myTit.nodeName);
+	console.log(myTit.tagName);
+	if (myTit.nodeName.toLowerCase() == 'div') {
+		console.log('这是html标签');
+	};
+	
+	// html元素
+	var myTit = document.getElementById('myDiv');
+	console.log('..........html元素..........');
+	console.log(myTit.title);
+	console.log(myTit.dir);
+	console.log(myTit.className);
+	console.log(myTit.id);
+	console.log(myTit.lang);
+
+	var tit = myTit.getAttribute('data-tit');
+	console.log(tit);
+	myTit.setAttribute('data-tit', '修改后的自定义标题');
+
+	myTit.dataTit = "red";
+
+    // 创建元素
+    var mydiv = document.createElement('div');
+    mydiv.id="createDom";
+    mydiv.className="on";
+    document.getElementById('createWp').appendChild(mydiv);
+    document.getElementById('createDom').innerHTML = "这是新增的元素";
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Document类型</title>
+		<link href="../css/bootstrap.css" rel="stylesheet">
+	</head>
+<body>
+	
+    <div class="container">
+    	<div class="page-header">
+			<h1 class="text-center">document类型</h1>
+		</div>
+		<p>
+			浏览器中，document对象是HTMLDocument(继承自Document类型)的一个实例，表示整个html页面。它又是window对象的一个属性，可作为全局对象访问。document节点特征：
+		</p>
+		<table class="table table-bordered">
+			<tr>
+				<td>nodeType</td>
+				<td>9</td>
+			</tr>
+			<tr>
+				<td>nodeName</td>
+				<td>#document</td>
+			</tr>
+			<tr>
+				<td>nodeValue</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>parentNode</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>ownerDocument</td>
+				<td>null</td>
+			</tr>
+		</table>
+		<div class="panel panel-primary">
+			<div class="panel-heading">1.文档的子节点</div>
+			<div class="panel-body">
+				<p>documentElement属性，始终指向<html>元素</p>
+				<p>document有个body属性，直接指向<body>元素。很常用</p>
+				<p>html之外的注释，是否算作document的节点，各浏览器解释不一。</p>
+			</div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">2. 文档信息</div>
+			<div class="panel-body">
+				<h3>document.title属性</h3>
+				<p>获取当前页面标题，或修改当前页面标题。修改title属性不会修改到title元素</p>
+				<h3>document.URL</h3>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>属性名</th>
+							<th>含义</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>document.URL</td>
+							<td>全地址(http://news.163.com/18/0426/08/DGABE4HH000189FH.html)</td>
+						</tr>
+						<tr>
+							<td>document.domain</td>
+							<td>域名(163.com)</td>
+						</tr>
+						<tr>
+							<td>document.referrer</td>
+							<td>全地址(http://www.163.com/)</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>仅domain值可改。仅可改为URL中包含的域。news.163.com可改为163.com，不可改为qq.com</p>
+			</div>
+		</div>
+		<article class="panel panel-primary">
+			<div class="panel-heading">3. 查找元素</div>
+			<div class="panel-body">
+				<h3>getElementById()</h3>
+				<p>大小写敏感，但是在IE8及以前浏览器中，大小写不敏感。页面多个ID取首个</p>
+				<p class="alert alert-danger">部分IE中，会将name也获取。如果name值在ID前，就会拿到name的值。所以，name和id尽量不同</p>
+				<div>
+					<input type="text" name="myEle" value="123">
+					<span id="myEle"></span>
+				</div>
+
+				<h3>getElementsByTagName()</h3>
+				<p>包含查找元素的NodeList，可以用item()或者[]来查找</p>
+				<p class="alert alert-danger">大小写不敏感，XML中敏感</p>
+
+				<h3>getElementsByName()</h3>
+				<p>返回符合给定name的所有元素。常用于单选按钮</p>
+				<form action="">
+					<ul>
+						<li><input type="radio" name="color" value="green" id="green">green</li>
+						<li><input type="radio" name="color" value="red" id="red">red</li>
+						<li><input type="radio" name="color" value="dark" id="dark" checked>dark</li>
+					</ul>
+				</form>
+
+				<h3>特殊集合</h3>
+				<p>document对象还有些特殊集合，这些集合都是HTMLCollection对象</p>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>集合名</th>
+							<th>集合用法</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>document.anchors</td>
+							<td>包含文档中所有含name的a元素</td>
+						</tr>
+						<tr>
+							<td>document.applets</td>
+							<td>包含文档中所有applets元素，已废弃元素，不常用</td>
+						</tr>
+						<tr>
+							<td>document.forms</td>
+							<td>获取文档中所有form，同document.getElementsByTagName('form')</td>
+						</tr>
+						<tr>
+							<td>document.images</td>
+							<td>包含文档中所有img元素，同document.getElementsByTagName('img')</td>
+						</tr>
+						<tr>
+							<td>document.links</td>
+							<td>包含文档中所有带href的a元素，同document.getElementsByTagName('a')</td>
+						</tr>
+					</tbody>
+				</table>
+				<a href="http://www.baidu.com">链接1</a>
+				<a>链接2</a>
+
+				<h3>文档写入</h3>
+				<p>
+					write() writeIn() 向文档写入文本，后者会在结尾加上回车换行
+				</p>
+				<p>可以在文档中动态插入外部js，但是要注意反义字符</p>
+			</div>
+		</article>
+
+    </div>
+
+    <script>
+    var html = document.documentElement;
+    console.log(document.childNodes[0]);
+    console.log(html);
+
+    var title = document.title;
+    title = "修改过的title";
+
+    // 查找元素 getElementById()
+    var myEle = document.getElementById('myEle');
+    console.log(myEle.value);	//IE7会输出123
+
+    var myColor = document.getElementsByName('color');
+    console.log(myColor);
+
+    console.log(document.links);
+    </script>
+</body>
+</html>

@@ -20,12 +20,15 @@
 
 		    if(s.innerHTML== 0){
 		        s.innerHTML="炸弹爆炸了！";
+		        clearInterval("run()");
+		        // s.style.display="none";
 		        return false;
-		        s.style.display="none";
+		    }else{
+		    	s.innerHTML = s.innerHTML* 1 - 1;
 		    }
-		    s.innerHTML = s.innerHTML* 1 - 1;
+		    
 		}
-		window.setInterval("run();", 1000);
+		var t = setInterval("run();", 1000);
 
 
 		// function run(){

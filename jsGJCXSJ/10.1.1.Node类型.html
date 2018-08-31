@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Node类型-DOM</title>
+		<link href="../css/bootstrap.css" rel="stylesheet">
+	</head>
+<body>
+    <div class="container">
+    	<h3>node接口，由DOM中所有的节点类型实现。每个节点都有一个nodeType属性，用于表明节点类型(12个数值常量表示)。</h3>
+    	<ul class="list">
+    		<li>Node.ELEMENT_NODE(1)</li>
+    		<li>Node.ATTRBUTE_NODE(2)</li>
+    		<li>Node.TEXT_NODE(3)</li>
+    		<li>Node.CDATA_SECTION_NODE(4)</li>
+    		<li>Node.ENTITY_REFERENCE_NODE(5)</li>
+    		<li>Node.ENTITY_NODE(6)</li>
+    		<li>Node.PROCESSNG_INSTRUCTION_NODE(7)</li>
+    		<li>Node.COMMENT_NODE(8)</li>
+    		<li>Node.DOCUMENT_NODE(9)</li>
+    		<li>Node.DOCUMENT_TYPE_NODE(10)</li>
+    		<li>Node.DOCUMENT_FRAGMENT_NODE(11)</li>
+    		<li>Node.NOTATION_NODE(12)</li>
+    		<li>用于被移除</li>
+    	</ul>
+    	<div class="panel-primary panel">
+    		<p class="panel-heading">nodeName nodeValue</p>
+	    	<p class="panel-body">
+	    		节点信息属性：nodeName, nodeValue。nodeName存储标签名，元素节点的nodeValue始终是null
+	    	</p>
+    	</div>
+    	<div class="panel-primary panel">
+    		<p class="panel-heading">节点关系</p>
+    		<div class="panel-body">
+    			<p>html是body的父节点，head与body是同胞节点，都是html的子节点。每个节点都有个childNodes属性，基中保存着NodeList对象。类数组对象，有数组的属性及方法但并不是数组的实例，值随DOM的变化而变化。
+    			</p>
+    			<p>
+    				parentNode属性-指向父节点。NodeList中所有节点有公共父节点
+    			</p>
+    			<p>
+    				previousSibling、nextSibling属性-可以访问同胞节点。NodeList中第一个无前者，末尾无后者。
+    			</p>
+				<p>
+					firstChild、lastChild分别指向第一个节点，最后一个。
+				</p>
+				<p>
+					childNodes属性-指向NodeList
+				</p>
+				<p>
+					hasChildNodes()方法，有子节点返回true，否则false
+				</p>
+    		</div>
+    	</div>
+    	<div class="panel panel-primary">
+    		<p class="panel-heading">
+    			操作节点
+    		</p>
+    		<div class="panel-body">
+    			<p>appendChild(目标节点) 向childNodes末尾插入一个节点，操作节点后，父节点、子节点等会相应更新</p>
+    			<p>insertBefore(目标节点，位置节点) 将目标节点放到childNodes指定位置，如没有第二个参数，此方法与appendChild()同</p>
+				<p>replaceChild(目标节点，被替换节点) 替换节点</p>
+				<p>removeChild(目标节点) 删除节点</p>
+    		</div>
+    	</div>
+    	<div class="panel panel-primary">
+    		<div class="panel-heading">其他方法</div>
+    		<div class="panel-body">
+    			<h3>cloneNode(bool) </h3>
+    			<p>创建调用此方法的节点的一个副本，如果参数为true，执行深度复制，将子节点也复制。false时只复制本节点</p>
+    			<p>复制后的节点副本归文档所有，没有任何父节点。可以通过appendChild()、insertBefore()、replaceChild()来加入文档</p>
+    	
+				<ul class="list listItem">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+				<p class="alert alert-danger">
+    				cloneNode()只会复制节点属性，节点上绑定的函数和事件并不会随着复制。IE有会连函数一起复制的BUG
+    			</p>
+    			<h3>normalize()</h3>
+    			<p>处理文档树中的节点。如果出现相邻两个都是文本节点，合并。如果找到空节点，删除。</p>
+    		</div>
+    	</div>
+    	
+    </div>
+
+    <script>
+    var mytit = document.getElementsByTagName('h3')[0];
+    // ie没有公开Node类型的构造函数，所以最好用数字比较
+    if (mytit.nodeType == 1) {
+    	console.log('node is element');
+    	val = mytit.nodeName;
+    	console.log('元素标签：' + val);
+    	console.log('元素内容：' + mytit.nodeValue);
+    };
+
+    // 可以用Array.prototype.slice()方法可以将NodeList转换为数组
+    var myarr = Array.prototype.slice.call(document.getElementsByTagName('ul')[0].childNodes, 0);
+    console.log(myarr);
+    // ie8及以下浏览器将NodeList当作COM，所以得手动转为数组
+    function convertToArray(nodes){
+    	var myarray = [];
+    	try{
+    		myarray = Array.prototype.slice.call(nodes, 0);
+    	} catch(ex){
+    		for (var i = 0; i < nodes.length; i++) {
+    			myarray.push(nodes[i]);
+    		};
+    	}
+    	return myarray;
+    }
+
+    // 插入末尾节点
+    var list = document.getElementsByClassName('list')[0];
+    var lastNode = list.appendChild(list.firstChild);
+    console.log(lastNode == list.firstChild);
+    console.log(lastNode == list.lastChild);
+    list.appendChild(list.firstChild);
+    // 插入目标节点
+    list.insertBefore(list.childNodes[2], list.childNodes[12]);
+
+    // cloneNode()
+    var listItem = document.getElementsByClassName('listItem')[0];
+    var deepList = listItem.cloneNode(true);
+    console.log(deepList.childNodes.length);
+    var shallowList = listItem.cloneNode(false);
+    console.log(shallowList.childNodes.length);
+    </script>
+</body>
+</html>
