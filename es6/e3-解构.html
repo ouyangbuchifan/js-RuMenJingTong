@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script>
+    //...放在函数参数里，表示若干个参数
+    let sum = (...m)=>{
+    	let total = 0;
+    	for(i of m){
+    		total += i
+    	}
+    	console.log(`total:${total}`);
+    }
+  	sum(1,2,3,4)
+    </script>
+</body>
+</html>
