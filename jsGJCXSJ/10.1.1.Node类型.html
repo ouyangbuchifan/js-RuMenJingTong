@@ -114,6 +114,7 @@
     // 插入末尾节点
     var list = document.getElementsByClassName('list')[0];
     var lastNode = list.appendChild(list.firstChild);
+    console.log('list.firstChild: ', list.firstChild)
     console.log(lastNode == list.firstChild);
     console.log(lastNode == list.lastChild);
     list.appendChild(list.firstChild);

@@ -35,6 +35,17 @@
     		cookiePath=";path="+cookiePath;		// 如果没有设置path属性，那默认就是当前目录和其子目录
     	}
     	document.cookie=cookieName+"="+cookieValue+";expires="+cookieExpires+cookiePath;
+    	console.log('设置成功')
+    }
+    // 获取cookie
+    function getCookie(name){
+    	console.log('获取cookie')
+    	var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    	if (arr = document.cookie.match(reg)) {
+    		return arr[2]
+    	} else{
+    		return null;
+    	}
     }
     </script>
 </head>
@@ -52,10 +63,15 @@
 		<div class="row">
 			<div class="col-sm-9 col-md-9">
 				<p>使用setCookie()函数</p>
-				<input type="submit" value="提交" onclick="setCookie('cookieName','cookieValue','','')">			
+				<input type="submit" value="提交" onclick="setCookie('欧阳','18395215415','','')">	<span id="get">获取</span>			
 			</div>
 		</div>
 	</div>
-    
+    <script>
+    var get = document.getElementById('get');
+    get.onclick = function(){
+    	console.log(getCookie('欧阳'));
+    }
+    </script>
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>执行数组遍历执行函数</h3>
+	<script>
+		const effTypeOptions = [
+			{ key: '1', value: '立即生效' },
+			{ key: '2', value: '下月生效' },
+			{ key: '3', value: '用户自选' }
+		]
+
+		// 地区列表
+		const areaOptions = [
+		  { key: '951', value: '银川' },
+		  { key: '952', value: '石嘴山' },
+		  { key: '953', value: '吴忠' },
+		  { key: '954', value: '中卫' },
+		  { key: '955', value: '固原' }
+		]
+		// reduce()方式
+		function init(i) {
+			let data
+			effTypeOptions.reduce(function(acc, cur, ind) {
+				if (i == ind) {
+				  	data = cur.value
+				}
+			})
+			return data
+		}
+		// console.log(init(3))
+
+		// map()方式
+		function initMap(obj, i) {
+			let data
+			obj.map(function(cur, index, arr) {
+				if (i == cur.key) {
+					data = cur.value
+				}
+			})
+			return data
+		}
+		console.log('生效方式： ', initMap(effTypeOptions, 3))
+		console.log('销售地区：', initMap(areaOptions, 951))
+		
+	</script>
+</body>
+</html>
